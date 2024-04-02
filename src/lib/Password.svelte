@@ -45,8 +45,10 @@
 	}
 
 	async function close() {
-		await stop();
-		modalStore.close();
+		if (scanning) {
+			await html5Qrcode.stop();
+		}
+		modalStore.clear();
 	}
 </script>
 
@@ -67,7 +69,7 @@
 			<i class="fa-solid fa-check"></i>
 			<span>Submit</span>
 		</button>
-		<button type="submit" class="btn variant-ghost" on:click={modalStore.close}>
+		<button type="button" class="btn variant-ghost" on:click={close}>
 			<i class="fa-solid fa-xmark"></i>
 			<span>Close</span>
 		</button>
