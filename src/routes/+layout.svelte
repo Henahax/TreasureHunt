@@ -62,9 +62,6 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<svelte:fragment slot="pageHeader">
-		<div class="text-center p-4 pt-8 text-2xl">Page Header</div>
-	</svelte:fragment>
 	<slot />
 	<svelte:fragment slot="pageFooter">
 		<div class="text-center p-4 text-xs opacity-50">© henahax.de 2024</div>

@@ -4,12 +4,14 @@
 
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
 
 	let password = '';
 	let scanning = false;
-	let html5Qrcode;
+	let html5Qrcode: any;
 
 	onMount(init);
+	onDestroy(close);
 
 	function init() {
 		html5Qrcode = new Html5Qrcode('reader');
@@ -51,12 +53,6 @@
 <div class="card p-8 flex flex-col gap-8">
 	<h2 class="h3">Unlock task</h2>
 	<reader id="reader" class={scanning ? '' : 'hidden'} />
-	{#if scanning}
-		<button type="button" class="btn variant-filled-primary w-fit self-center" on:click={stop}>
-			<i class="fa-solid fa-stop"></i>
-			<span>Stop</span>
-		</button>
-	{/if}
 	<label class="label">
 		<span>Enter password or scan QR-code</span>
 		<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
@@ -67,7 +63,7 @@
 		</div>
 	</label>
 	<div class="flex justify-between">
-		<button type="submit" class="btn variant-filled-primary" on:click={close}>
+		<button type="submit" class="btn variant-filled-primary" on:click={modalStore.close}>
 			<i class="fa-solid fa-check"></i>
 			<span>Submit</span>
 		</button>

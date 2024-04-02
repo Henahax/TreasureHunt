@@ -1,0 +1,47 @@
+{
+    "id": "beta",
+    "lang": "en",
+    "name": "Treasure Hunt Beta",
+    "tasks": [
+        {
+            "id": 0,
+            "name": "Intro",
+            "unlocked": true,
+            "password": "",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "intro text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/6/64/The_Realm_of_Dreams_banner.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "intro text2"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Task 1",
+            "unlocked": false,
+            "password": "holz",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "task text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/e/e6/Secrets_Obscure_wallpaper.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "task text2"
+                }
+            ]
+        }
+    ]
+}
