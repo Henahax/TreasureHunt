@@ -42,13 +42,13 @@
 
 	function onScanFailure(error) {
 		//console.warn(`Code scan error = ${error}`);
+		stop();
 	}
 
-	async function close() {
+	function close() {
 		if (scanning) {
-			await html5Qrcode.stop();
+			stop();
 		}
-		modalStore.clear();
 	}
 </script>
 
@@ -69,7 +69,7 @@
 			<i class="fa-solid fa-check"></i>
 			<span>Submit</span>
 		</button>
-		<button type="button" class="btn variant-ghost" on:click={close}>
+		<button type="button" class="btn variant-ghost" on:click={modalStore.close}>
 			<i class="fa-solid fa-xmark"></i>
 			<span>Close</span>
 		</button>

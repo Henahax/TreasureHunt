@@ -13,7 +13,7 @@
 	initializeStores();
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	import Tasks from '$lib/Tasks.svelte';
+	import Navigation from '$lib/Navigation.svelte';
 	import Password from '$lib/Password.svelte';
 
 	const modalStore = getModalStore();
@@ -23,7 +23,7 @@
 		component: modalPassword
 	};
 
-	const modalTasks: ModalComponent = { ref: Tasks };
+	const modalTasks: ModalComponent = { ref: Navigation };
 	const modalTasksSettings: ModalSettings = {
 		type: 'component',
 		component: modalTasks
