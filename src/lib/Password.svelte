@@ -47,6 +47,20 @@
 			stop();
 		}
 	}
+
+	function test() {
+		modalStore.close();
+		toastStore.trigger(t);
+	}
+
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	const toastStore = getToastStore();
+
+	const t: ToastSettings = {
+		message: 'Aufgabe freigeschalten!',
+		timeout: 2500,
+		background: 'variant-filled-success'
+	};
 </script>
 
 <div class="card p-8 flex flex-col gap-8">
@@ -62,7 +76,7 @@
 		</div>
 	</label>
 	<div class="flex justify-between">
-		<button type="submit" class="btn variant-filled-primary" on:click={modalStore.close}>
+		<button type="submit" class="btn variant-filled-primary" on:click={test}>
 			<i class="fa-solid fa-check"></i>
 			<span>Submit</span>
 		</button>

@@ -1,7 +1,7 @@
 {
     "id": "beta",
-    "lang": "en",
-    "name": "Treasure Hunt Beta",
+    "lang": "de",
+    "name": "Schnitzeljagd: Beta",
     "tasks": [
         {
             "id": 0,
@@ -15,32 +15,20 @@
                     "text": "<b>Willkommen zur Schnitzeljagd-Webapp Beta</b>"
                 },
                 {
-                    "type": "text",
-                    "text": "Danke fürs Mitmachen!"
-                },
-                {
                     "type": "image",
-                    "src": "https://s3.amazonaws.com/www.explorersweb.com/wp-content/uploads/2022/09/30041336/shutterstock_606386231.jpg"
+                    "src": "https://images.unsplash.com/photo-1608924066819-930edc42986a"
                 },
                 {
                     "type": "text",
-                    "text": "Die Schnitzeljagd Webanwendung ist primär ein Projekt zum Technologien lernen."
+                    "text": "ℹ️ Projekt Info:<br>- Webanwendung für Schnitzeljagden<br>- Zielgruppen: Online (Events, Gilden), in Person (Spieleabende, Kindergeburtstage, vielleicht Jungesellen/-innen Abschiede)<br>- Schnitzeljagden werden in einer einzelnen .json-Datei definiert, Rest erledigt die Webanwendung"
                 },
                 {
                     "type": "text",
-                    "text": "Die besten Projekte natürlich die sollte man auch nutzen und teilen können."
+                    "text": "🎯 Beta Ziele:<br>- Webanwendung generell testen<br>- Passwort-, QR-Code-, Standortintegration testen<br>- prüfen wie intuitiv es ist, schwer verständliche Sachen erkennen<br>- Bugs finden und beheben<br>- parallel mache ich auch eine in-Person-Beta"
                 },
                 {
                     "type": "text",
-                    "text": "Neben unseren Online/Ingame Schnitzeljagden soll die Webanwendung in Person und vor Ort verwendet werden können. Dazu mache ich einen zweiten Beta-Test bei mir im Büro. 🙂"
-                },
-                {
-                    "type": "text",
-                    "text": "Zielgruppen: Online-Events, Spieleabende, Kindergeburtstage und vielleicht sogar Jungesellen/-innen Abschiede"
-                },
-                {
-                    "type": "text",
-                    "text": "Technisch wird die komplette Schnitzeljagd in einer einzelnen Datei im JSON-Datei-Format definiert, hoffentlich halbwegs verständlich, damit andere auch was bauen können."
+                    "text": "Danke fürs mitmachen!"
                 }
             ]
         },
@@ -52,15 +40,19 @@
             "content": [
                 {
                     "type": "text",
-                    "text": "- öffnet die Schnitzeljagd am besten auf dem <b>Handy</b>, ich würde gerne sowohl <b>Passwörter</b>, <b>QR-Codes</b> als auch <b>Standortfreigaben</b> testen"
+                    "text": "- öffnet die Schnitzeljagd am besten auf dem <b>Handy</b> und erteilt bei Bedarf Berechtigungen"
                 },
                 {
                     "type": "text",
-                    "text": "- will nicht viel erklären, hoffe es ist intuitiv genug"
+                    "text": "- die Beta-Aufgaben sind atmosphärisch uninteressant, der Test konzentriert sich aufs Technische"
                 },
                 {
                     "type": "text",
-                    "text": "- meldet mir bitte alles was nicht funkioniert hat, unverständlich war oder wenn ihr Verbesserungsvorschläge habt."
+                    "text": "- ich will nicht viel erklären, hoffe es ist intuitiv genug"
+                },
+                {
+                    "type": "text",
+                    "text": "- meldet mir bitte alles was nicht funktioniert hat, unverständlich war oder wenn ihr Verbesserungsvorschläge habt."
                 },
                 {
                     "type": "text",
@@ -74,10 +66,10 @@
         },
         {
             "id": 2,
-            "name": "Task 2",
-            "description" : "Sieg?",
+            "name": "Aufgabe 2",
+            "description" : "QR-Code Scanner",
             "locked": true,
-            "password": "holz3",
+            "password": "START",
             "content": [
                 {
                     "type": "text",

@@ -33,17 +33,19 @@
 					<svelte:fragment slot="lead">
 						{#if task.active}
 							<i class="fa-solid fa-question"></i>
+						{:else if task.locked}
+							<i class="fa-solid fa-lock"></i>
 						{:else}
 							<i class="fa-solid fa-check"></i>
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="summary">
-						<span class={task.active ? 'text-success-500' : ''}
-							>{task.name}
+						<div class={task.active ? 'text-success-500' : ''}>
+							<p class="text-sm">{task.name}</p>
 							{#if !task.locked}
-								<br />{task.description}
+								<p>{task.description}</p>
 							{/if}
-						</span>
+						</div>
 					</svelte:fragment>
 					<svelte:fragment slot="content">
 						{#each task.content as content}
