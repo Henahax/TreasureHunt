@@ -13,7 +13,7 @@
 	initializeStores();
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	import Navigation from '$lib/Navigation.svelte';
+	import Events from '$lib/Events.svelte';
 	import Password from '$lib/Password.svelte';
 
 	const modalStore = getModalStore();
@@ -23,7 +23,7 @@
 		component: modalPassword
 	};
 
-	const modalTasks: ModalComponent = { ref: Navigation };
+	const modalTasks: ModalComponent = { ref: Events };
 	const modalTasksSettings: ModalSettings = {
 		type: 'component',
 		component: modalTasks
@@ -41,28 +41,24 @@
 <Modal />
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
+		<AppBar>
 			<svelte:fragment slot="lead">
 				<button type="button" class="btn variant-ghost" on:click={openTasks}>
-					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">Tasks</span>
+					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">Events</span>
 				</button>
 			</svelte:fragment>
 
-			<svelte:fragment>
-				<span class="text-center text-nowrap">
-					<h1 class="h4 sm:h3">Treasure Hunt</h1>
-				</span>
-			</svelte:fragment>
+			<h1 class="h4 text-center">Treasure Hunt</h1>
 
 			<svelte:fragment slot="trail">
 				<button type="button" class="btn variant-ghost-primary" on:click={openPassword}>
 					<i class="fa-solid fa-key"></i>
-					<span class="hidden sm:block">Password</span>
+					<span class="hidden sm:block">Unlock</span>
 				</button>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<div class="mx-auto p-8 w-fit max-w-screen-xl flex flex-col gap-8">
+	<div class="mx-auto p-4 max-w-screen-md flex flex-col gap-4">
 		<slot />
 	</div>
 	<svelte:fragment slot="pageFooter">

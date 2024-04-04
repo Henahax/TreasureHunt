@@ -6,6 +6,7 @@
         {
             "id": 0,
             "name": "Intro",
+            "description" : "Einleitung",
             "unlocked": true,
             "password": "",
             "content": [
@@ -30,8 +31,51 @@
         {
             "id": 1,
             "name": "Task 1",
-            "unlocked": false,
+            "description" : "Weiterführung",
+            "unlocked": true,
             "password": "holz",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "task text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/e/e6/Secrets_Obscure_wallpaper.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "task text2"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Task 2",
+            "description" : "Sieg?",
+            "unlocked": false,
+            "password": "holz3",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "task text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/e/e6/Secrets_Obscure_wallpaper.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "task text2"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Task 3",
+            "description" : "Sieg",
+            "unlocked": false,
+            "password": "holz3",
             "content": [
                 {
                     "type": "text",
