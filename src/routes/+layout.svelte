@@ -48,7 +48,7 @@
 				</button>
 			</svelte:fragment>
 
-			<h1 class="h4 text-center">Treasure Hunt</h1>
+			<h1 class="h4 text-center"><strong>Treasure Hunt</strong></h1>
 
 			<svelte:fragment slot="trail">
 				<button type="button" class="btn variant-ghost-primary" on:click={openPassword}>

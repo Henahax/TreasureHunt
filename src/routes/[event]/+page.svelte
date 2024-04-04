@@ -16,10 +16,9 @@
 		for (var i = $eventStore.tasks.length - 1; i >= 0; i--) {
 			$eventStore.tasks[i].active = false;
 
-			if ($eventStore.tasks[i].unlocked && activeNotSet) {
+			if (!$eventStore.tasks[i].locked && activeNotSet) {
 				$eventStore.tasks[i].active = true;
 				activeNotSet = false;
-				console.log(activeNotSet);
 			}
 		}
 	}
@@ -28,49 +27,35 @@
 {#if data.id}
 	<h2 class="h3">Quest Log</h2>
 	<div class="w-full card">
-		<Accordion autocollapse width="w-full">
+		<Accordion width="w-full">
 			{#each $eventStore.tasks as task}
-				{#if task.unlocked}
-					<AccordionItem>
-						<svelte:fragment slot="lead">
-							{#if task.active}
-								<i class="fa-solid fa-question"></i>
-							{:else}
-								<i class="fa-solid fa-check"></i>
+				<AccordionItem bind:disabled={task.locked}>
+					<svelte:fragment slot="lead">
+						{#if task.active}
+							<i class="fa-solid fa-question"></i>
+						{:else}
+							<i class="fa-solid fa-check"></i>
+						{/if}
+					</svelte:fragment>
+					<svelte:fragment slot="summary">
+						<span class={task.active ? 'text-success-500' : ''}
+							>{task.name}
+							{#if !task.locked}
+								<br />{task.description}
 							{/if}
-						</svelte:fragment>
-						<svelte:fragment slot="summary">
-							<span class={task.active ? 'text-success-500' : ''}
-								>{task.name}<br />{task.description}</span
-							>
-						</svelte:fragment>
-						<svelte:fragment slot="content">
-							{#each task.content as content}
-								{#if content.type === 'text'}
-									<p>{content.text}</p>
-								{/if}
-								{#if content.type === 'image'}
-									<img src={content.src} alt="" />
-								{/if}
-							{/each}
-						</svelte:fragment>
-					</AccordionItem>
-				{:else}
-					<AccordionItem disabled>
-						<svelte:fragment slot="lead"><i class="fa-solid fa-lock"></i></svelte:fragment>
-						<svelte:fragment slot="summary">{task.name}<br /></svelte:fragment>
-						<svelte:fragment slot="content">
-							{#each task.content as content}
-								{#if content.type === 'text'}
-									<p>{content.text}</p>
-								{/if}
-								{#if content.type === 'image'}
-									<img src={content.src} alt="" />
-								{/if}
-							{/each}
-						</svelte:fragment>
-					</AccordionItem>
-				{/if}
+						</span>
+					</svelte:fragment>
+					<svelte:fragment slot="content">
+						{#each task.content as content}
+							{#if content.type === 'text'}
+								<p>{@html content.text}</p>
+							{/if}
+							{#if content.type === 'image'}
+								<img src={content.src} alt="" />
+							{/if}
+						{/each}
+					</svelte:fragment>
+				</AccordionItem>
 			{/each}
 		</Accordion>
 	</div>

@@ -1,0 +1,118 @@
+{
+    "id": "beta",
+    "lang": "en",
+    "name": "Treasure Hunt Beta",
+    "tasks": [
+        {
+            "id": 0,
+            "name": "Einleitung",
+            "description" : "Über die Webanwendung",
+            "locked": false,
+            "password": "",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "<b>Willkommen zur Schnitzeljagd-Webapp Beta</b>"
+                },
+                {
+                    "type": "text",
+                    "text": "Danke fürs Mitmachen!"
+                },
+                {
+                    "type": "image",
+                    "src": "https://s3.amazonaws.com/www.explorersweb.com/wp-content/uploads/2022/09/30041336/shutterstock_606386231.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "Die Schnitzeljagd Webanwendung ist primär ein Projekt zum Technologien lernen."
+                },
+                {
+                    "type": "text",
+                    "text": "Die besten Projekte natürlich die sollte man auch nutzen und teilen können."
+                },
+                {
+                    "type": "text",
+                    "text": "Neben unseren Online/Ingame Schnitzeljagden soll die Webanwendung in Person und vor Ort verwendet werden können. Dazu mache ich einen zweiten Beta-Test bei mir im Büro. 🙂"
+                },
+                {
+                    "type": "text",
+                    "text": "Zielgruppen: Online-Events, Spieleabende, Kindergeburtstage und vielleicht sogar Jungesellen/-innen Abschiede"
+                },
+                {
+                    "type": "text",
+                    "text": "Technisch wird die komplette Schnitzeljagd in einer einzelnen Datei im JSON-Datei-Format definiert, hoffentlich halbwegs verständlich, damit andere auch was bauen können."
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Aufgabe 1",
+            "description" : "Ablauf & Regeln",
+            "locked": false,
+            "content": [
+                {
+                    "type": "text",
+                    "text": "- öffnet die Schnitzeljagd am besten auf dem <b>Handy</b>, ich würde gerne sowohl <b>Passwörter</b>, <b>QR-Codes</b> als auch <b>Standortfreigaben</b> testen"
+                },
+                {
+                    "type": "text",
+                    "text": "- will nicht viel erklären, hoffe es ist intuitiv genug"
+                },
+                {
+                    "type": "text",
+                    "text": "- meldet mir bitte alles was nicht funkioniert hat, unverständlich war oder wenn ihr Verbesserungsvorschläge habt."
+                },
+                {
+                    "type": "text",
+                    "text": "Die nächste Aufgabe entsperrt ihr mit dem Passwort:"
+                },
+                {
+                    "type": "text",
+                    "text": "<b>START</b>"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Task 2",
+            "description" : "Sieg?",
+            "locked": true,
+            "password": "holz3",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "task text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/e/e6/Secrets_Obscure_wallpaper.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "task text2"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Task 3",
+            "description" : "Sieg",
+            "locked": true,
+            "password": "holz3",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "task text1"
+                },
+                {
+                    "type": "image",
+                    "src": "https://wiki.guildwars2.com/images/e/e6/Secrets_Obscure_wallpaper.jpg"
+                },
+                {
+                    "type": "text",
+                    "text": "task text2"
+                }
+            ]
+        }
+    ]
+}
