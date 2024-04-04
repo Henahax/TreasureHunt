@@ -40,10 +40,7 @@
 		stop();
 	}
 
-	function onScanFailure(error) {
-		//console.warn(`Code scan error = ${error}`);
-		stop();
-	}
+	function onScanFailure(error) {}
 
 	function close() {
 		if (scanning) {

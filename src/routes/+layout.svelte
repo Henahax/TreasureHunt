@@ -62,7 +62,9 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<slot />
+	<div class="mx-auto p-8 w-fit max-w-screen-xl flex flex-col gap-8">
+		<slot />
+	</div>
 	<svelte:fragment slot="pageFooter">
 		<div class="text-center p-4 text-xs opacity-50">© henahax.de 2024</div>
 	</svelte:fragment>
