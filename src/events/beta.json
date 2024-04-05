@@ -12,7 +12,7 @@
             "content": [
                 {
                     "type": "text",
-                    "text": "<b>Willkommen zur Schnitzeljagd-Webapp Beta</b>"
+                    "text": "<b>Willkommen zur Schnitzeljagd-Webanwendung Beta</b>"
                 },
                 {
                     "type": "image",
@@ -60,7 +60,7 @@
                 },
                 {
                     "type": "text",
-                    "text": "<b>START</b>"
+                    "text": "<b> START </b>"
                 }
             ]
         },

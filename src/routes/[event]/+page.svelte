@@ -13,12 +13,14 @@
 	function updateActiveTask() {
 		var activeNotSet = true;
 
-		for (var i = $eventStore.tasks.length - 1; i >= 0; i--) {
-			$eventStore.tasks[i].active = false;
+		if ($eventStore.tasks) {
+			for (var i = $eventStore.tasks.length - 1; i >= 0; i--) {
+				$eventStore.tasks[i].active = false;
 
-			if (!$eventStore.tasks[i].locked && activeNotSet) {
-				$eventStore.tasks[i].active = true;
-				activeNotSet = false;
+				if (!$eventStore.tasks[i].locked && activeNotSet) {
+					$eventStore.tasks[i].active = true;
+					activeNotSet = false;
+				}
 			}
 		}
 	}
@@ -28,11 +30,11 @@
 	<h2 class="h3">Quest Log</h2>
 	<div class="w-full card">
 		<Accordion width="w-full">
-			{#each $eventStore.tasks as task}
+			{#each $eventStore.tasks as task, t}
 				<AccordionItem bind:disabled={task.locked}>
 					<svelte:fragment slot="lead">
 						{#if task.active}
-							<i class="fa-solid fa-question"></i>
+							<i class="fa-solid fa-question animate-pulse text-success-500"></i>
 						{:else if task.locked}
 							<i class="fa-solid fa-lock"></i>
 						{:else}
@@ -51,8 +53,7 @@
 						{#each task.content as content}
 							{#if content.type === 'text'}
 								<p>{@html content.text}</p>
-							{/if}
-							{#if content.type === 'image'}
+							{:else if content.type === 'image'}
 								<img src={content.src} alt="" />
 							{/if}
 						{/each}
@@ -62,8 +63,10 @@
 		</Accordion>
 	</div>
 {:else}
-	<h2 class="h2 text-error-500">not found</h2>
-	<p class="text-center text-error-500">verify your path</p>
+	<div class="text-center text-error-500">
+		<h2 class="h2">not found</h2>
+		<p>verify your path</p>
+	</div>
 {/if}
 
 <style>
