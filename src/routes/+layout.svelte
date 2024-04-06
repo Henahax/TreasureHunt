@@ -1,22 +1,20 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
-	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
-
-	// Floating UI for Popups
+	import { Modal } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	import { initializeStores } from '@skeletonlabs/skeleton';
+	import { Toast } from '@skeletonlabs/skeleton';
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import { eventStore } from './eventStore';
+	import lang from '../lang/lang.json';
+	import Events from '$lib/Events.svelte';
+	import Password from '$lib/Password.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	// Modal
-	import { Modal } from '@skeletonlabs/skeleton';
-	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
-
-	import { getModalStore } from '@skeletonlabs/skeleton';
-	import Events from '$lib/Events.svelte';
-	import Password from '$lib/Password.svelte';
 
 	const modalStore = getModalStore();
 	const modalPassword: ModalComponent = { ref: Password };
@@ -47,16 +45,16 @@
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<button type="button" class="btn variant-ghost" on:click={openTasks}>
-					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">Events</span>
+					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">{lang.events.de}</span>
 				</button>
 			</svelte:fragment>
 
-			<h1 class="h4 text-center"><strong>Treasure Hunt</strong></h1>
+			<h1 class="h4 text-center"><strong>{$eventStore.name}</strong></h1>
 
 			<svelte:fragment slot="trail">
 				<button type="button" class="btn variant-ghost-primary" on:click={openPassword}>
 					<i class="fa-solid fa-key"></i>
-					<span class="hidden sm:block">Unlock</span>
+					<span class="hidden sm:block">{lang.unlock.de}</span>
 				</button>
 			</svelte:fragment>
 		</AppBar>

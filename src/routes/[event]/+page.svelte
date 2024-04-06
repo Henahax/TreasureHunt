@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { eventStore } from '../store';
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
-
+	import { eventStore } from '../eventStore';
 	export let data;
 	$eventStore = data;
 
@@ -34,7 +33,7 @@
 				<AccordionItem bind:disabled={task.locked}>
 					<svelte:fragment slot="lead">
 						{#if task.active}
-							<i class="fa-solid fa-question animate-pulse text-success-500"></i>
+							<i class="fa-solid fa-circle-exclamation animate-pulse text-success-500"></i>
 						{:else if task.locked}
 							<i class="fa-solid fa-lock"></i>
 						{:else}

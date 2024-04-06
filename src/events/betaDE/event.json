@@ -1,12 +1,12 @@
 {
     "id": "beta",
     "lang": "de",
-    "name": "Schnitzeljagd: Beta",
+    "name": "Schnitzeljagd DE",
     "tasks": [
         {
             "id": 0,
             "name": "Einleitung",
-            "description" : "Über die Webanwendung",
+            "description": "Über die Webanwendung",
             "locked": false,
             "password": "",
             "content": [
@@ -24,7 +24,7 @@
                 },
                 {
                     "type": "text",
-                    "text": "🎯 Beta Ziele:<br>- Webanwendung generell testen<br>- Passwort-, QR-Code-, Standortintegration testen<br>- prüfen wie intuitiv es ist, schwer verständliche Sachen erkennen<br>- Bugs finden und beheben<br>- parallel mache ich auch eine in-Person-Beta"
+                    "text": "🎯 Beta Ziele:<br>- Webanwendung generell testen<br>- Passwort-, QR-Code- testen<br>- prüfen wie intuitiv es ist, schwer verständliche Sachen erkennen<br>- Bugs finden und beheben<br>- parallel mache ich auch eine in-Person-Beta"
                 },
                 {
                     "type": "text",
@@ -35,7 +35,7 @@
         {
             "id": 1,
             "name": "Aufgabe 1",
-            "description" : "Ablauf & Regeln",
+            "description": "Ablauf & Regeln",
             "locked": false,
             "content": [
                 {
@@ -67,7 +67,7 @@
         {
             "id": 2,
             "name": "Aufgabe 2",
-            "description" : "QR-Code Scanner",
+            "description": "QR-Code Scanner",
             "locked": true,
             "password": "START",
             "content": [
@@ -88,7 +88,7 @@
         {
             "id": 3,
             "name": "Task 3",
-            "description" : "Sieg",
+            "description": "Sieg",
             "locked": true,
             "password": "holz3",
             "content": [

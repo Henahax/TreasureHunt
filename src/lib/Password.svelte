@@ -63,7 +63,7 @@
 	};
 </script>
 
-<div class="card p-8 flex flex-col gap-8">
+<div class="card p-4 flex flex-col gap-8">
 	<h2 class="h3">Unlock task</h2>
 	<reader id="reader" class={scanning ? '' : 'hidden'} />
 	<label class="label">

@@ -3,8 +3,8 @@
 	const modalStore = getModalStore();
 </script>
 
-<div class="card p-8 flex flex-col gap-4">
-	<h2 class="h2">Select task</h2>
+<div class="card p-4 flex flex-col gap-4">
+	<h2 class="h3">Select task</h2>
 	<nav class="list-nav">
 		<ul>
 			<li>
