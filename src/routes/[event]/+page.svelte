@@ -6,7 +6,7 @@
 
 	$: $eventStore, updateActiveTask();
 
-	//Debug
+	// Debug
 	//$: $eventStore, console.log($eventStore);
 
 	function updateActiveTask() {
@@ -23,6 +23,11 @@
 			}
 		}
 	}
+
+	// Open Task, if last unlocked and next no password -> unlock next
+	function test(event) {
+		console.log(event.detail);
+	}
 </script>
 
 {#if data.id}
@@ -30,7 +35,7 @@
 	<div class="w-full card">
 		<Accordion width="w-full">
 			{#each $eventStore.tasks as task, t}
-				<AccordionItem bind:disabled={task.locked}>
+				<AccordionItem bind:disabled={task.locked} on:toggle={test}>
 					<svelte:fragment slot="lead">
 						{#if task.active}
 							<i class="fa-solid fa-circle-exclamation animate-pulse text-success-500"></i>
