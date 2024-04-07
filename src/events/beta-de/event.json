@@ -8,7 +8,6 @@
             "name": "Einleitung",
             "description": "Über die Webanwendung",
             "locked": false,
-            "password": "",
             "content": [
                 {
                     "type": "text",
@@ -36,7 +35,7 @@
             "id": 1,
             "name": "Aufgabe 1",
             "description": "Ablauf & Regeln",
-            "locked": false,
+            "locked": true,
             "content": [
                 {
                     "type": "text",
