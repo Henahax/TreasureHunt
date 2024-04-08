@@ -44,4 +44,4 @@ jobs:
         run: docker build . --file Dockerfile --tag henahax/treasurehunt:latest
 
       - name: Push to Docker Hub
-        run: docker push henahax/gw2tools:latest
+        run: docker push henahax/treasurehunt:latest
