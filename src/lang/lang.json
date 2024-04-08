@@ -1,15 +1,15 @@
 {
     "events": {
-        "en": "Browse events",
-        "de": "todo"
+        "en": "Events",
+        "de": "Events"
     },
     "unlock": {
-        "en": "Unlock task",
-        "de": "Entsperren"
+        "en": "Unlock",
+        "de": "Freischalten"
     },
-    "selectTask": {
-        "en": "Select task",
-        "de": "todo auswählen"
+    "selectEvent": {
+        "en": "Select event",
+        "de": "Event freischalten"
     },
     "unlockTask": {
         "en": "Unlock task",

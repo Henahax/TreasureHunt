@@ -45,7 +45,9 @@
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<button type="button" class="btn variant-ghost" on:click={openTasks}>
-					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">{lang.events.de}</span>
+					<i class="fa-solid fa-bars"></i><span class="hidden sm:block"
+						>{lang.events[$eventStore.lang]}</span
+					>
 				</button>
 			</svelte:fragment>
 
@@ -54,7 +56,7 @@
 			<svelte:fragment slot="trail">
 				<button type="button" class="btn variant-ghost-primary" on:click={openPassword}>
 					<i class="fa-solid fa-key"></i>
-					<span class="hidden sm:block">{lang.unlock.de}</span>
+					<span class="hidden sm:block">{lang.unlock[$eventStore.lang]}</span>
 				</button>
 			</svelte:fragment>
 		</AppBar>
