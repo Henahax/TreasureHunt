@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	const modalStore = getModalStore();
 	import { eventStore } from '../routes/eventStore';
 	import lang from '../lang/lang.json';
+	const modalStore = getModalStore();
 </script>
 
 <div class="card p-4 flex flex-col gap-4">
