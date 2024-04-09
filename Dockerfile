@@ -1,8 +1,12 @@
 FROM node
+
 WORKDIR /app
+COPY package.json ./
+RUN npm install
+
 COPY . .
-RUN npm ci
 RUN npm run build
-RUN rm -rf src/ static/ emailTemplates/ docker-compose.yml
-USER node:node
-CMD ["node","build"]
+
+CMD ["node", "build"]
+
+EXPOSE 3000
