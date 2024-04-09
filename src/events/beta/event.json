@@ -135,7 +135,7 @@
             "name": "Aufgabe 4",
             "description": "Wurde übersprungen",
             "locked": true,
-            "password": "GibtEsNicht",
+            "password": "GibtsNicht",
             "content": [
                 {
                     "type": "text",
