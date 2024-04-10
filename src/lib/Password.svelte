@@ -78,7 +78,7 @@
 		for (let i = 0; i < $eventStore.tasks.length; i++) {
 			if (
 				$eventStore.tasks[i].password !== undefined &&
-				password.toLowerCase() === $eventStore.tasks[i].password.toLowerCase()
+				password.toLowerCase().trim() === $eventStore.tasks[i].password.toLowerCase()
 			) {
 				return i;
 			}
@@ -107,24 +107,23 @@
 	<reader id="reader" class={scanning ? '' : 'hidden'} />
 	<label class="label">
 		<span>{lang.enterPasswordScanQR[$eventStore.lang]}</span>
-		<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+		<div class="input-group grid-cols-[1fr_auto_1fr]">
+			<input type="submit" class="hidden" on:click={unlock} />
+			<button on:click={start}>
+				<i class="fa-solid fa-qrcode"></i>
+			</button>
 			<input
 				type="text"
 				placeholder={lang.enterPassword[$eventStore.lang]}
 				bind:value={password}
 				on:submit={unlock}
 			/>
-			<input type="submit" class="hidden" on:click={unlock} />
-			<button class="variant-filled-primary" on:click={start}>
-				<i class="fa-solid fa-qrcode"></i>
+			<button class="variant-filled-primary" on:click={unlock}>
+				<i class="fa-solid fa-check"></i>
 			</button>
 		</div>
 	</label>
-	<div class="flex justify-between">
-		<button type="submit" class="btn variant-filled-primary" on:click={unlock}>
-			<i class="fa-solid fa-check"></i>
-			<span>{lang.submit[$eventStore.lang]}</span>
-		</button>
+	<div class="flex justify-end">
 		<button type="button" class="btn variant-ghost" on:click={modalStore.close}>
 			<i class="fa-solid fa-xmark"></i>
 			<span>{lang.close[$eventStore.lang]}</span>
