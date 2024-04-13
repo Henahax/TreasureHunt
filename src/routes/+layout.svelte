@@ -36,6 +36,20 @@
 	function openPassword() {
 		modalStore.trigger(modalPasswordSettings);
 	}
+
+	let textTreasureHunt = 'Treasure Hunt';
+	let textEvents = 'Events';
+	let textUnlock = 'Unlock';
+
+	$: $eventStore, changeText();
+
+	function changeText() {
+		if (Object.keys($eventStore).length > 0) {
+			textTreasureHunt = $eventStore.name;
+			textEvents = lang.events[$eventStore.lang];
+			textUnlock = lang.unlock[$eventStore.lang];
+		}
+	}
 </script>
 
 <Toast />
@@ -45,18 +59,16 @@
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<button type="button" class="btn variant-ghost" on:click={openTasks}>
-					<i class="fa-solid fa-bars"></i><span class="hidden sm:block"
-						>{lang.events[$eventStore.lang]}</span
-					>
+					<i class="fa-solid fa-bars"></i><span class="hidden sm:block">{textEvents}</span>
 				</button>
 			</svelte:fragment>
 
-			<h1 class="h4 text-center"><strong>{$eventStore.name}</strong></h1>
+			<h1 class="h4 text-center"><strong>{textTreasureHunt}</strong></h1>
 
 			<svelte:fragment slot="trail">
 				<button type="button" class="btn variant-ghost-primary" on:click={openPassword}>
 					<i class="fa-solid fa-key"></i>
-					<span class="hidden sm:block">{lang.unlock[$eventStore.lang]}</span>
+					<span class="hidden sm:block">{textUnlock}</span>
 				</button>
 			</svelte:fragment>
 		</AppBar>

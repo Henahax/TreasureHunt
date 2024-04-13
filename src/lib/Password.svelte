@@ -1,19 +1,18 @@
 <script lang="ts">
-	import { focusTrap, getModalStore } from '@skeletonlabs/skeleton';
-	const modalStore = getModalStore();
-
+	import { getModalStore } from '@skeletonlabs/skeleton';
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
 	import { onDestroy } from 'svelte';
 	import { eventStore } from '../routes/eventStore';
 	import lang from '../lang/lang.json';
 
+	const modalStore = getModalStore();
 	let password = '';
 	let scanning = false;
 	let html5Qrcode: any;
 
 	onMount(init);
-	onDestroy(close);
+	onDestroy(closeThing);
 
 	function init() {
 		html5Qrcode = new Html5Qrcode('reader');
@@ -44,7 +43,7 @@
 
 	function onScanFailure(error) {}
 
-	function close() {
+	function closeThing() {
 		if (scanning) {
 			stop();
 		}
@@ -62,7 +61,7 @@
 		toastStore.trigger(toastError);
 	}
 
-	function unlock() {
+	function unlockThing() {
 		let count = passwordExists();
 		if (count === 0) {
 			error();
@@ -100,33 +99,46 @@
 		timeout: 2500,
 		background: 'variant-filled-error'
 	};
+
+	let unlockTask = 'Unlock Task';
+	let enterPasswordScanQR = 'Enter password or scan QR-Code';
+	let unlock = 'Unlock';
+	let close = 'Close';
+
+	$: $eventStore, changeText();
+
+	function changeText() {
+		if (Object.keys($eventStore).length > 0) {
+			unlockTask = lang.unlockTask[$eventStore.lang];
+			enterPasswordScanQR = lang.enterPasswordScanQR[$eventStore.lang];
+			unlock = lang.unlock[$eventStore.lang];
+			close = lang.close[$eventStore.lang];
+		}
+	}
 </script>
 
 <form class="card p-4 flex flex-col gap-8">
-	<h2 class="h3">{lang.unlockTask[$eventStore.lang]}</h2>
+	<h2 class="h3">{unlockTask}</h2>
 	<reader id="reader" class={scanning ? '' : 'hidden'} />
+
 	<label class="label">
-		<span>{lang.enterPasswordScanQR[$eventStore.lang]}</span>
-		<div class="input-group grid-cols-[1fr_auto_1fr]">
-			<input type="submit" class="hidden" on:click={unlock} />
-			<button on:click={start}>
+		<span>{enterPasswordScanQR}</span>
+		<div class="input-group grid-cols-[auto_1fr_auto]">
+			<input type="submit" class="hidden" on:click={unlockThing} />
+			<button class="variant-filled-primary" on:click={start}>
 				<i class="fa-solid fa-qrcode"></i>
 			</button>
-			<input
-				type="text"
-				placeholder={lang.enterPassword[$eventStore.lang]}
-				bind:value={password}
-				on:submit={unlock}
-			/>
-			<button class="variant-filled-primary" on:click={unlock}>
-				<i class="fa-solid fa-check"></i>
-			</button>
+			<input type="text" placeholder={unlock} bind:value={password} on:submit={unlockThing} />
 		</div>
 	</label>
-	<div class="flex justify-end">
+	<div class="flex justify-between">
+		<button type="button" class="btn variant-filled-primary" on:click={unlockThing}>
+			<i class="fa-solid fa-check"></i>
+			<span>{unlock}</span>
+		</button>
 		<button type="button" class="btn variant-ghost" on:click={modalStore.close}>
 			<i class="fa-solid fa-xmark"></i>
-			<span>{lang.close[$eventStore.lang]}</span>
+			<span>{close}</span>
 		</button>
 	</div>
 </form>

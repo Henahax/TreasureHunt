@@ -3,10 +3,22 @@
 	import { eventStore } from '../routes/eventStore';
 	import lang from '../lang/lang.json';
 	const modalStore = getModalStore();
+
+	let selectEvent = 'Events';
+	let close = 'Unlock';
+
+	$: $eventStore, changeText();
+
+	function changeText() {
+		if (Object.keys($eventStore).length > 0) {
+			selectEvent = lang.selectEvent[$eventStore.lang];
+			close = lang.close[$eventStore.lang];
+		}
+	}
 </script>
 
 <div class="card p-4 flex flex-col gap-4">
-	<h2 class="h3">{lang.selectEvent[$eventStore.lang]}</h2>
+	<h2 class="h3">{selectEvent}</h2>
 	<nav class="list-nav">
 		<ul>
 			<li>
@@ -20,7 +32,7 @@
 	<div class="flex justify-center">
 		<button type="button" class="btn variant-ghost" on:click={modalStore.close}>
 			<i class="fa-solid fa-xmark"></i>
-			<span>{lang.close[$eventStore.lang]}</span>
+			<span>{close}</span>
 		</button>
 	</div>
 </div>
