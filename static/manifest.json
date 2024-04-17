@@ -1,10 +1,10 @@
 {
-    "name": "PWA Minimus",
-    "short_name": "PWA mini",
+    "name": "Treasure Hunt",
+    "short_name": "Treasure Hunt",
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#1f2937",
+    "background_color": "#1f2937",
     "icons": [
         {
             "purpose": "any",
