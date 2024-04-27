@@ -1,9 +1,17 @@
-<script lang="ts">
-	import { getString, language } from '../lib/dictionary.ts';
-
-	let test = getString('close', language.de);
+<script>
+	import { createCollapsible, melt } from '@melt-ui/svelte';
+	const {
+		elements: { root, content, trigger },
+		states: { open }
+	} = createCollapsible();
 </script>
 
-<h2 class="h2">Info</h2>
-<p>verify your path</p>
-<div>{test}</div>
+<div>Test</div>
+
+<div use:melt={$root}>
+	<button use:melt={$trigger}>{$open ? 'Close' : 'Open'}</button>
+	<div use:melt={$content}>Obi-Wan says: Hello there!</div>
+</div>
+
+<style>
+</style>
