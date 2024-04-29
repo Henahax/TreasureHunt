@@ -1,15 +1,9 @@
-<script>
+<script lang="ts">
 	import './styles.css';
 </script>
 
 <div class="app">
-	<header>header</header>
-
-	<main>
-		<slot />
-	</main>
-
-	<footer>footer</footer>
+	<slot />
 </div>
 
 <style>
