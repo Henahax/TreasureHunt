@@ -1,9 +1,13 @@
-<script lang="ts">
+<script>
 	import './styles.css';
 </script>
 
 <div class="app">
-	<slot />
+	<main>
+		<slot />
+	</main>
+
+	<footer></footer>
 </div>
 
 <style>
