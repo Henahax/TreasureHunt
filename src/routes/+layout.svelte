@@ -7,26 +7,21 @@
 		<slot />
 	</main>
 
-	<div class="absolute bottom-0 flex flex-row p-4 justify-center w-full items-center gap-4">
-		<nav>
+	<div class="absolute bottom-0 flex w-full flex-row items-center justify-center gap-4 p-4">
+		<nav class="rounded-full bg-white bg-opacity-5 px-4">
 			<ul class="flex flex-row">
 				<li>
-					<a href="/" class="btn btn-active btn-neutral">
+					<a href="/" class="btn btn-ghost">
 						<i class="fa-solid fa-house"></i>
 					</a>
 				</li>
 				<li>
-					<a href="/" class="btn btn-active btn-neutral">
-						<i class="fa-solid fa-house"></i>
+					<a href="/" class="btn btn-ghost">
+						<i class="fa-solid fa-list-ul"></i>
 					</a>
 				</li>
 				<li>
-					<a href="/" class="btn btn-active btn-neutral">
-						<i class="fa-solid fa-house"></i>
-					</a>
-				</li>
-				<li>
-					<a href="/" class="btn btn-active btn-neutral">
+					<a href="/" class="btn btn-ghost">
 						<i class="fa-solid fa-house"></i>
 					</a>
 				</li>
