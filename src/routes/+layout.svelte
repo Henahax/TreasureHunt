@@ -22,7 +22,7 @@
 				</li>
 				<li>
 					<a href="/" class="btn btn-ghost">
-						<i class="fa-solid fa-house"></i>
+						<i class="fa-solid fa-question"></i>
 					</a>
 				</li>
 			</ul>
