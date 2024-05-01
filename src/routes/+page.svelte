@@ -1,12 +1,11 @@
 <script>
+	import Heading from '$lib/images/heading.svelte';
 </script>
 
-<section class="h-16 p-4 text-2xl font-bold">
-	<div>Welcome!</div>
-</section>
-<section class="flex flex-col gap-2 px-4">
+<Heading title="Welcome!" />
+<section class="flex flex-col gap-2">
 	<div>Schatzsuchen:</div>
-	<div class="carousel carousel-center h-32 max-w-md space-x-4">
+	<div class="carousel carousel-center h-32 w-full space-x-4">
 		<div class="carousel-item">
 			<img
 				src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"

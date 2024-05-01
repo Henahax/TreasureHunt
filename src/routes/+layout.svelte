@@ -2,36 +2,35 @@
 	import './styles.css';
 </script>
 
-<div class="app min-h-dvh">
-	<main>
-		<slot />
-	</main>
-
-	<div class="absolute bottom-0 flex w-full flex-row items-center justify-center gap-4 p-4">
-		<nav class="rounded-full bg-white bg-opacity-5 px-4">
+<div class="app mx-auto flex max-w-screen-lg flex-col p-4">
+	<div class="fixed bottom-4 w-full lg:relative lg:top-0">
+		<nav class="mx-auto w-fit rounded-full bg-white bg-opacity-5 px-2">
 			<ul class="flex flex-row">
 				<li>
 					<a href="/" class="btn btn-ghost">
 						<i class="fa-solid fa-house"></i>
+						<div class="hidden sm:block">Home</div>
 					</a>
 				</li>
 				<li>
-					<a href="/" class="btn btn-ghost">
+					<a href="/event/beta" class="btn btn-ghost">
 						<i class="fa-solid fa-list-ul"></i>
+						<div class="hidden sm:block">Treasure Hunts</div>
 					</a>
 				</li>
 				<li>
-					<a href="/" class="btn btn-ghost">
+					<a href="/about" class="btn btn-ghost">
 						<i class="fa-solid fa-question"></i>
+						<div class="hidden sm:block">About</div>
 					</a>
 				</li>
 			</ul>
 		</nav>
-
-		<button class="btn btn-circle btn-primary btn-lg text-2xl">
-			<i class="fa-solid fa-key"></i>
-		</button>
 	</div>
+
+	<main class="w-full">
+		<slot />
+	</main>
 </div>
 
 <style>
