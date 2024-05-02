@@ -1,10 +1,13 @@
 <script>
-	import Heading from '$lib/images/heading.svelte';
+	import Heading from '$lib/heading.svelte';
+	import { navStore } from './store';
+
+	$navStore = 'home';
 </script>
 
 <Heading title="Welcome!" />
 <section class="flex flex-col gap-2">
-	<div>Schatzsuchen:</div>
+	<div>Featured Treasure Hunts:</div>
 	<div class="carousel carousel-center h-32 w-full space-x-4">
 		<div class="carousel-item">
 			<img
