@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Heading from '$lib/heading.svelte';
 	import { navStore } from '../store';
-
+	import { titleStore } from '../store';
 	$navStore = 'settings';
+	$titleStore = 'Settings';
 </script>
-
-<Heading title="Settings" />

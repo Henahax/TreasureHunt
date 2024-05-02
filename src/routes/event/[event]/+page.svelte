@@ -1,12 +1,10 @@
 <script lang="ts">
-	import Heading from '$lib/heading.svelte';
 	export let data;
-
 	import { navStore } from '../../store';
-	$navStore = "";
+	import { titleStore } from '../../store';
+	$navStore = '';
+	$titleStore = data.name;
 </script>
-
-<Heading title={data.name} />
 
 <div class="fixed">
 	<button class="btn btn-primary">

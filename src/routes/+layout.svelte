@@ -1,6 +1,8 @@
 <script>
 	import './styles.css';
+	import Heading from '$lib/heading.svelte';
 	import { navStore } from './store';
+	import { titleStore } from './store';
 </script>
 
 <div class="app flex flex-col">
@@ -9,12 +11,6 @@
 	>
 		<li class={$navStore === 'home' ? 'active' : ''}>
 			<a href="/">
-				<i class="fa-solid fa-house"></i>
-				<div class="hidden sm:block">Home</div>
-			</a>
-		</li>
-		<li class={$navStore === 'events' ? 'active' : ''}>
-			<a href="/events">
 				<i class="fa-solid fa-list-ul"></i>
 				<div class="hidden sm:block">Treasure Hunts</div>
 			</a>
@@ -33,9 +29,9 @@
 		</li>
 	</ul>
 
-	<main
-		class="mx-auto mb-16 mt-0 flex w-full max-w-screen-lg flex-col justify-start gap-4 p-4 lg:mb-0 lg:mt-16"
-	>
+	<main class="mx-auto mb-16 mt-0 flex w-full max-w-screen-lg flex-col gap-8 p-4 lg:mb-0 lg:mt-16">
+		<Heading title={$titleStore} />
+
 		<slot />
 	</main>
 </div>

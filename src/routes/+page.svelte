@@ -1,65 +1,78 @@
-<script>
-	import Heading from '$lib/heading.svelte';
+<script lang="ts">
 	import { navStore } from './store';
-
+	import { titleStore } from './store';
 	$navStore = 'home';
+	$titleStore = 'Welcome!';
+
+	import events from '$lib/events/events.json';
+	$: filteredEvents = events.filter(
+		(event) => event.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
+	);
+
+	let filter = '';
+
+	import event from '$lib/events/beta/event.json';
 </script>
 
-<Heading title="Welcome!" />
 <section class="flex flex-col gap-2">
-	<div>Featured Treasure Hunts:</div>
-	<div class="carousel carousel-center h-32 w-full space-x-4">
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
-				class="rounded-box"
-				alt=""
-			/>
+	<h2>Active Treasure Hunt:</h2>
+	<a
+		href="event/beta"
+		class="card flex h-fit w-full border border-neutral-700 bg-[url('https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg')] bg-cover bg-no-repeat"
+	>
+		<div
+			class="card from-base-300 flex h-full w-full flex-col justify-between gap-2 bg-gradient-to-br from-35% to-transparent p-4"
+		>
+			<div>
+				<h2 class="text-3xl font-semibold">{event.name}</h2>
+				<div class="text-md">{event.description}</div>
+			</div>
+			<progress class="progress progress-success w-full" value="33" max="100"></progress>
+
+			<div class="flex w-full flex-row flex-wrap gap-1">
+				<div class="badge gap-2"><i class="fa-solid fa-location-dot"></i>Online</div>
+				<div class="badge gap-2"><i class="fa-solid fa-language"></i>de</div>
+				<div class="badge gap-2">Beta-Test</div>
+				<div class="badge gap-2">Handy</div>
+				<div class="badge gap-2">Desktop</div>
+				<div class="badge gap-2">Kamera</div>
+				<div class="badge gap-2">Feedback</div>
+			</div>
 		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
-		<div class="carousel-item">
-			<img
-				src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg"
-				class="rounded-box"
-				alt=""
-			/>
-		</div>
+	</a>
+</section>
+<section class="flex flex-col gap-2">
+	<h2>Available Treasure Hunts:</h2>
+	<div class="bg-base-200 rounded-lg">
+		<label class="input input-bordered flex items-center gap-2">
+			<i class="fa-solid fa-magnifying-glass text-sm"></i>
+			<input type="text" class="grow" placeholder="Search" bind:value={filter} />
+		</label>
+		<ul class="menu rounded-box w-full">
+			{#if filteredEvents.length === 0}
+				<li>
+					<div class="justify-center">no results</div>
+				</li>
+			{/if}
+			{#each filteredEvents as event, index}
+				<li>
+					<a href="event/{event.id}" class="flex flex-row justify-between">
+						<div>{event.name}</div>
+						<div class="text-right">
+							<div class="badge gap-2">
+								<i class="fa-solid fa-location-dot"></i>{event.location}
+							</div>
+							<div class="badge gap-2"><i class="fa-solid fa-language"></i>{event.language}</div>
+							{#if event.tags.length > 0}
+								<div class="badge gap-2">{event.tags.length} tags</div>
+							{/if}
+						</div>
+					</a>
+				</li>
+				{#if index !== filteredEvents.length - 1}
+					<div class="divider m-0"></div>
+				{/if}
+			{/each}
+		</ul>
 	</div>
 </section>
-
-<style>
-</style>

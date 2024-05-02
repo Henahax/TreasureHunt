@@ -2,6 +2,7 @@
     "id": "beta",
     "lang": "de",
     "name": "Schnitzeljagd Beta",
+    "description": "Erste Schatzsuche zum testen",
     "hideLocked": false,
     "tasks": [
         {

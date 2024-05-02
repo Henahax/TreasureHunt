@@ -1,14 +1,6 @@
 <script lang="ts">
-import Heading from '$lib/heading.svelte';
 	import { navStore } from '../store';
-
-	$navStore = "about";
+	import { titleStore } from '../store';
+	$navStore = 'about';
+	$titleStore = 'About';
 </script>
-
-<Heading title="About" />
-
-
-<md-block>
-	# Heading
-	Some *embedded* Markdown which `md-block` can convert for you!
-</md-block>

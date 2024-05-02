@@ -1,0 +1,22 @@
+[
+    {
+        "id": "beta",
+        "name": "Beta-Test Schatzsuche",
+        "location": "online",
+        "language": "de",
+        "tags": [
+            "Beta-Test",
+            "Handy",
+            "Desktop",
+            "Kamera",
+            "Feedback"
+        ]
+    },
+    {
+        "id": "dummy",
+        "name": "Dummy Treasure Hunt",
+        "location": "Munich",
+        "language": "en",
+        "tags": []
+    }
+]
