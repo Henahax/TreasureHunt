@@ -5,13 +5,14 @@
 	$titleStore = 'Welcome!';
 
 	import events from '$lib/events/events.json';
+	let activeEvent = events[0];
+
+	//TODO
 	$: filteredEvents = events.filter(
 		(event) => event.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
 	);
 
 	let filter = '';
-
-	import event from '$lib/events/beta/event.json';
 </script>
 
 <section class="flex flex-col gap-2">
@@ -24,19 +25,25 @@
 			class="card from-base-300 flex h-full w-full flex-col justify-between gap-2 bg-gradient-to-br from-35% to-transparent p-4"
 		>
 			<div>
-				<h2 class="text-3xl font-semibold">{event.name}</h2>
-				<div class="text-md">{event.description}</div>
+				<h2 class="text-3xl font-semibold">{activeEvent.name}</h2>
+				<div class="text-md">{activeEvent.description}</div>
 			</div>
 			<progress class="progress progress-success w-full" value="33" max="100"></progress>
 
 			<div class="flex w-full flex-row flex-wrap gap-1">
-				<div class="badge gap-2"><i class="fa-solid fa-location-dot"></i>Online</div>
-				<div class="badge gap-2"><i class="fa-solid fa-language"></i>de</div>
-				<div class="badge gap-2">Beta-Test</div>
-				<div class="badge gap-2">Handy</div>
-				<div class="badge gap-2">Desktop</div>
-				<div class="badge gap-2">Kamera</div>
-				<div class="badge gap-2">Feedback</div>
+				{#if activeEvent.location}
+					<div class="badge gap-2">
+						<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
+					</div>
+				{/if}
+				{#if activeEvent.language}
+					<div class="badge gap-2">
+						<i class="fa-solid fa-language"></i>{activeEvent.language}
+					</div>
+				{/if}
+				{#each activeEvent.tags as tag}
+					<div class="badge gap-2">{tag}</div>
+				{/each}
 			</div>
 		</div>
 	</a>

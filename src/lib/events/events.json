@@ -2,19 +2,21 @@
     {
         "id": "beta",
         "name": "Beta-Test Schatzsuche",
+        "description": "Erste Schatzsuche zum testen",
         "location": "online",
         "language": "de",
         "tags": [
             "Beta-Test",
-            "Handy",
-            "Desktop",
-            "Kamera",
-            "Feedback"
+            "phone",
+            "web",
+            "camera",
+            "feedback"
         ]
     },
     {
         "id": "dummy",
         "name": "Dummy Treasure Hunt",
+        "description": "another treasure hunt to fill the list",
         "location": "Munich",
         "language": "en",
         "tags": []
