@@ -4,13 +4,16 @@
 	$navStore = 'home';
 	$titleStore = 'Welcome!';
 
-	import events from '$lib/events/events.json';
+	import events from '$lib/events.json';
 	let activeEvent = events[0];
 
-	//TODO
-	$: filteredEvents = events.filter(
-		(event) => event.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
-	);
+	$: filteredEvents = events.filter((event) => {
+		const nameMatch = event.name.toLowerCase().includes(filter.toLowerCase());
+		const languageMatch = event.language.toLowerCase().includes(filter.toLowerCase());
+		const locationMatch = event.location.toLowerCase().includes(filter.toLowerCase());
+		const tagMatch = event.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()));
+		return nameMatch || languageMatch || locationMatch || tagMatch;
+	});
 
 	let filter = '';
 </script>
