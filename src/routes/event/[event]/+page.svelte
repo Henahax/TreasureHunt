@@ -1,17 +1,29 @@
 <script lang="ts">
-	export let data;
 	import { navStore } from '../../store';
 	import { titleStore } from '../../store';
+
+	export let data;
+
 	$navStore = '';
 	$titleStore = data.name;
+
+	let activeEvent = '';
+	let activeTask = 0;
+
+	function startEvent() {}
 </script>
 
-<div class="fixed">
-	<button class="btn btn-primary">
-		<i class="fa-solid fa-key"></i>
-		<div>Unlock Task</div>
-	</button>
-</div>
+<section>Progress Drawer</section>
+
+<!-- event info -->
+<section>
+	<div>
+		<img src={data.image} alt={data.name} />
+		<p>{data.description}</p>
+		<button on:click={startEvent}>Start Event</button>
+	</div>
+	<div>Task Info</div>
+</section>
 
 <style>
 </style>
