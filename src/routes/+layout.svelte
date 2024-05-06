@@ -27,13 +27,6 @@
 	</li>
 </ul>
 
-<main class="mx-auto flex max-w-screen-lg flex-col gap-4 p-2 pb-20 lg:pb-2 lg:pt-16">
-	<h1 class="text-3xl">{$titleStore}</h1>
-
-	<div class="mx-auto grid w-full grid-cols-1 gap-4 lg:grid-cols-2">
-		<slot />
-	</div>
+<main>
+	<slot />
 </main>
-
-<style>
-</style>
