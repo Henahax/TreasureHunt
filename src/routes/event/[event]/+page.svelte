@@ -2,7 +2,52 @@
 	import { navStore } from '../../store';
 	import { titleStore } from '../../store';
 
-	import Password from '$lib/password.svelte';
+	import { Html5Qrcode } from 'html5-qrcode';
+	import { onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
+
+	let password = '';
+	let scanning = false;
+	let html5Qrcode: any;
+
+	onMount(init);
+	onDestroy(close);
+
+	function init() {
+		html5Qrcode = new Html5Qrcode('reader');
+	}
+
+	function start() {
+		html5Qrcode.start(
+			{ facingMode: 'environment' },
+			{
+				fps: 10,
+				qrbox: { width: 250, height: 250 }
+			},
+			onScanSuccess,
+			onScanFailure
+		);
+		scanning = true;
+	}
+
+	async function stop() {
+		await html5Qrcode.stop();
+		scanning = false;
+	}
+
+	function onScanSuccess(decodedText, decodedResult) {
+		password = decodedText;
+		stop();
+	}
+
+	function onScanFailure(error) {}
+
+	function close() {
+		if (scanning) {
+			stop();
+		}
+		document.getElementById('closePassword')?.click();
+	}
 
 	export let data;
 
@@ -23,11 +68,32 @@
 		>
 
 		<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-			<div class="modal-box">
-				<div class="modal-action">
-					<Password />
+			<div class="modal-box flex flex-col gap-4">
+				<h3 class="text-lg">Scan QR-code or enter password</h3>
+				<reader id="reader" class={scanning ? '' : 'hidden'} />
+
+				<button class="btn w-fit" on:click={start}>
+					<i class="fa-solid fa-qrcode"></i>Scan QR-code
+				</button>
+
+				<label class="input input-bordered flex items-center gap-2">
+					<i class="fa-solid fa-key"></i>
+					<input type="text" class="grow" placeholder="Enter password" />
+				</label>
+
+				<div class="flex flex-row justify-between gap-4">
+					<button class="btn btn-primary" on:click={start}>
+						<i class="fa-solid fa-check"></i>Send
+					</button>
+					<button class="btn" on:click={close}>
+						<i class="fa-solid fa-x"></i>Close
+					</button>
 				</div>
 			</div>
+
+			<form method="dialog" class="modal-backdrop">
+				<button id="closePassword" on:click={close}></button>
+			</form>
 		</dialog>
 
 		{#each data.tasks as task}
