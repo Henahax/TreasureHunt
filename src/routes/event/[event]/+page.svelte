@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { navStore } from '../../store';
-	import { titleStore } from '../../store';
+	import { navStore } from '$lib/store';
+	import { titleStore } from '$lib/store';
 
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
@@ -104,15 +104,15 @@
 	</div>
 	<div class="drawer-side">
 		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-		<ul class="steps steps-vertical p-4 pt-16">
+		<ul class="steps steps-vertical bg-base-200 my-auto h-full px-4 py-16">
 			{#each data.tasks as task}
 				{#if task.active}
-					<li data-content="!" class="step step-primary">
-						<button class="btn btn-link">{task.name}</button>
+					<li data-content="!" class="step step-primary min-h-0">
+						<button class="btn btn-link min-h-0">{task.name}</button>
 					</li>
 				{:else if task.unlocked}
 					<li data-content="✓" class="step step-primary">
-						<a class="btn btn-link h-full w-full">{task.name}</a>
+						<a class="btn btn-link">{task.name}</a>
 					</li>
 				{/if}
 			{/each}

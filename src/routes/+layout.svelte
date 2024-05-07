@@ -1,7 +1,7 @@
 <script>
 	import './styles.css';
-	import { navStore } from './store';
-	import { titleStore } from './store';
+	import { navStore } from '$lib/store';
+	import { titleStore } from '$lib/store';
 </script>
 
 <ul
