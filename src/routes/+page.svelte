@@ -9,10 +9,10 @@
 
 	$: filteredEvents = events.filter((event) => {
 		const nameMatch = event.name.toLowerCase().includes(filter.toLowerCase());
-		const languageMatch = event.language.toLowerCase().includes(filter.toLowerCase());
+		const langMatch = event.lang.toLowerCase().includes(filter.toLowerCase());
 		const locationMatch = event.location.toLowerCase().includes(filter.toLowerCase());
 		const tagMatch = event.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()));
-		return nameMatch || languageMatch || locationMatch || tagMatch;
+		return nameMatch || langMatch || locationMatch || tagMatch;
 	});
 
 	let filter = '';
@@ -39,9 +39,9 @@
 						<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
 					</div>
 				{/if}
-				{#if activeEvent.language}
+				{#if activeEvent.lang}
 					<div class="badge gap-2">
-						<i class="fa-solid fa-language"></i>{activeEvent.language}
+						<i class="fa-solid fa-language"></i>{activeEvent.lang}
 					</div>
 				{/if}
 				{#each activeEvent.tags as tag}
@@ -72,9 +72,9 @@
 							<div class="badge gap-2">
 								<i class="fa-solid fa-location-dot"></i>{event.location}
 							</div>
-							<div class="badge gap-2"><i class="fa-solid fa-language"></i>{event.language}</div>
+							<div class="badge gap-2"><i class="fa-solid fa-language"></i>{event.lang}</div>
 							{#if event.tags.length > 0}
-								<div class="badge gap-2">{event.tags.length} tags</div>
+								<div class="badge gap-2">{event.tags.length}tags</div>
 							{/if}
 						</div>
 					</a>

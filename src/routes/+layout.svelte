@@ -2,6 +2,14 @@
 	import './styles.css';
 	import { navStore } from '$lib/store';
 	import { titleStore } from '$lib/store';
+	import { langStore } from '$lib/store';
+	import { onMount } from 'svelte';
+	import lang from '$lib/lang.json';
+	onMount(loadLang);
+
+	function loadLang() {
+		$langStore = lang;
+	}
 </script>
 
 <ul

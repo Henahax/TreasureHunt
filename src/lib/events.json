@@ -4,7 +4,7 @@
         "name": "Beta-Test Schatzsuche",
         "description": "Erste Schatzsuche zum testen",
         "location": "online",
-        "language": "de",
+        "lang": "de",
         "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
         "tags": [
             "Beta-Test",
@@ -44,7 +44,7 @@
         "name": "Dummy Treasure Hunt",
         "description": "another treasure hunt to fill the list",
         "location": "Munich",
-        "language": "en",
+        "lang": "en",
         "tags": []
     }
 ]

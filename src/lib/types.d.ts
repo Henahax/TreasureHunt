@@ -7,15 +7,15 @@ export type Task = {
     name: string,
     description:  string,
     unlocked: boolean = false,
-    actice: boolean = false
+    active: boolean = false
 }
 
 export type Event = {
     id: string,
     name: string,
     description: string,
-    language: Language,
+    lang: Language,
     image: string,
     tags: string[],
-    tasks: Tast[]
+    tasks: Task[]
 };
