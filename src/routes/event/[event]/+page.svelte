@@ -5,6 +5,7 @@
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
 	import { onDestroy } from 'svelte';
+	import type { Event, Task } from '$lib/types';
 
 	let password = '';
 	let scanning = false;
@@ -35,12 +36,12 @@
 		scanning = false;
 	}
 
-	function onScanSuccess(decodedText, decodedResult) {
+	function onScanSuccess(decodedText: any, decodedResult: any) {
 		password = decodedText;
 		stop();
 	}
 
-	function onScanFailure(error) {}
+	function onScanFailure(error: any) {}
 
 	function close() {
 		if (scanning) {
@@ -49,7 +50,7 @@
 		document.getElementById('closePassword')?.click();
 	}
 
-	export let data;
+	export let data: Event;
 
 	$navStore = '';
 	$titleStore = data.name;
@@ -59,7 +60,7 @@
 	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content flex w-fit flex-col items-center p-16">
 		<label for="my-drawer" class="btn btn-neutral drawer-button fixed bottom-20 left-4 lg:hidden"
-			><i class="fa-solid fa-book"></i>Task</label
+			><i class="fa-solid fa-book"></i>Tasks</label
 		>
 		<!-- Page content here -->
 
