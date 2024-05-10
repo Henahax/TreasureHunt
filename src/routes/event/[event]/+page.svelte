@@ -47,7 +47,7 @@
 		if (scanning) {
 			stop();
 		}
-		document.getElementById('closePassword')?.click();
+		//document?.getElementById('my_modal_5')?.classList.remove('modal-open');
 	}
 
 	export let data: Event;
