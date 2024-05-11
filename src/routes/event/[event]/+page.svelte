@@ -4,7 +4,7 @@
 
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { onMount } from 'svelte';
-	import { onDestroy } from 'svelte';
+	//import { onDestroy } from 'svelte';
 	import type { Event, Task } from '$lib/types';
 
 	let password = '';
@@ -12,7 +12,7 @@
 	let html5Qrcode: any;
 
 	onMount(init);
-	onDestroy(close);
+	//onDestroy(close);
 
 	function init() {
 		html5Qrcode = new Html5Qrcode('reader');
@@ -47,7 +47,6 @@
 		if (scanning) {
 			stop();
 		}
-		//document?.getElementById('my_modal_5')?.classList.remove('modal-open');
 	}
 
 	export let data: Event;
@@ -68,28 +67,25 @@
 			><i class="fa-solid fa-key"></i>Unlock Task</button
 		>
 
-		<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-			<div class="modal-box flex flex-col gap-4">
-				<h3 class="text-lg">Scan QR-code or enter password</h3>
+		<dialog id="my_modal_5" on:close={close} class="modal modal-bottom sm:modal-middle">
+			<div class="modal-box flex flex-col items-center gap-4">
+				<form method="dialog">
+					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+				</form>
 				<reader id="reader" class={scanning ? '' : 'hidden'} />
 
-				<button class="btn w-fit" on:click={start}>
+				<button class="btn btn-neutral w-full text-start" on:click={start}>
 					<i class="fa-solid fa-qrcode"></i>Scan QR-code
 				</button>
 
-				<label class="input input-bordered flex items-center gap-2">
+				<label class="input input-bordered flex w-full items-center gap-2">
 					<i class="fa-solid fa-key"></i>
 					<input type="text" class="grow" placeholder="Enter password" />
 				</label>
 
-				<div class="flex flex-row justify-between gap-4">
-					<button class="btn btn-primary" on:click={start}>
-						<i class="fa-solid fa-check"></i>Send
-					</button>
-					<button class="btn" on:click={close}>
-						<i class="fa-solid fa-x"></i>Close
-					</button>
-				</div>
+				<button class="btn btn-primary self-end" on:click={start}>
+					<i class="fa-solid fa-check"></i>Send
+				</button>
 			</div>
 
 			<form method="dialog" class="modal-backdrop">
