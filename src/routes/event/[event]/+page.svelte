@@ -69,6 +69,7 @@
 
 		<dialog id="my_modal_5" on:close={close} class="modal modal-bottom sm:modal-middle">
 			<div class="modal-box flex flex-col items-center gap-4">
+				<h2 class="text-lg">Scan QR-code or enter password</h2>
 				<reader id="reader" class={scanning ? '' : 'hidden'} />
 
 				<button class="btn btn-neutral w-full text-start" on:click={start}>
@@ -85,7 +86,7 @@
 						<i class="fa-solid fa-check"></i>Send
 					</button>
 					<form method="dialog">
-						<button class="btn">✕</button>
+						<button class="btn">✕ Schließen</button>
 					</form>
 				</div>
 			</div>
