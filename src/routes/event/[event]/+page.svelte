@@ -41,7 +41,7 @@
 		stop();
 	}
 
-	function onScanFailure(error: any) {}
+	function onScanFailure(error) {}
 
 	function close() {
 		if (scanning) {
@@ -55,70 +55,52 @@
 	$titleStore = data.name;
 </script>
 
-<div class="drawer lg:drawer-open">
-	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content flex w-fit flex-col items-center p-16">
-		<label for="my-drawer" class="btn btn-neutral drawer-button fixed bottom-20 left-4 lg:hidden"
-			><i class="fa-solid fa-book"></i>Tasks</label
-		>
-		<!-- Page content here -->
+<button class="btn btn-primary fixed bottom-20 right-4" onclick="my_modal_5.showModal()"
+	><i class="fa-solid fa-key"></i>Unlock Task</button
+>
 
-		<button class="btn btn-primary fixed bottom-20 right-4" onclick="my_modal_5.showModal()"
-			><i class="fa-solid fa-key"></i>Unlock Task</button
-		>
+<dialog id="my_modal_5" on:close={close} class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box flex w-full flex-col items-center gap-4">
+		<h2 class="text-lg">Scan QR-code or enter password</h2>
 
-		<dialog id="my_modal_5" on:close={close} class="modal modal-bottom sm:modal-middle">
-			<div class="modal-box flex flex-col items-center gap-4">
-				<h2 class="text-lg">Scan QR-code or enter password</h2>
-				<reader id="reader" class={scanning ? '' : 'hidden'} />
+		<reader id="reader" class={scanning ? '' : 'hidden'} />
 
-				<button class="btn btn-neutral w-full text-start" on:click={start}>
-					<i class="fa-solid fa-qrcode"></i>Scan QR-code
+		<button class="btn btn-neutral w-full text-start" on:click={start}>
+			<i class="fa-solid fa-qrcode"></i>Scan QR-code
+		</button>
+
+		<label class="input input-bordered flex w-full items-center gap-2">
+			<i class="fa-solid fa-key"></i>
+			<input type="text" class="grow" placeholder="Enter password" />
+		</label>
+
+		<div class="flex w-full flex-row justify-between">
+			<button class="btn btn-primary self-end" on:click={start}>
+				<i class="fa-solid fa-check"></i>
+				Send
+			</button>
+			<form method="dialog">
+				<button class="btn">
+					<i class="fa-solid fa-xmark"></i>
+					Schließen
 				</button>
-
-				<label class="input input-bordered flex w-full items-center gap-2">
-					<i class="fa-solid fa-key"></i>
-					<input type="text" class="grow" placeholder="Enter password" />
-				</label>
-
-				<div class="flex w-full flex-row justify-between">
-					<button class="btn btn-primary self-end" on:click={start}>
-						<i class="fa-solid fa-check"></i>Send
-					</button>
-					<form method="dialog">
-						<button class="btn">✕ Schließen</button>
-					</form>
-				</div>
-			</div>
-
-			<form method="dialog" class="modal-backdrop">
-				<button id="closePassword" on:click={close}></button>
 			</form>
-		</dialog>
+		</div>
+	</div>
 
-		{#each data.tasks as task}
-			{#if task.active}
-				<h2>{task.name}</h2>
-			{/if}
-		{/each}
-	</div>
-	<div class="drawer-side">
-		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-		<ul class="steps steps-vertical bg-base-200 my-auto h-full px-4 py-16">
-			{#each data.tasks as task}
-				{#if task.active}
-					<li data-content="!" class="step step-primary min-h-0">
-						<button class="btn btn-link min-h-0">{task.name}</button>
-					</li>
-				{:else if task.unlocked}
-					<li data-content="✓" class="step step-primary">
-						<a class="btn btn-link">{task.name}</a>
-					</li>
-				{/if}
-			{/each}
-		</ul>
-	</div>
-</div>
+	<form method="dialog" class="modal-backdrop">
+		<button id="closePassword" on:click={close}></button>
+	</form>
+</dialog>
+
+{#each data.tasks as task}
+	{#if task.active}
+		<h2>{task.name}</h2>
+	{/if}
+{/each}
 
 <style>
+	:global(video) {
+		width: 100% !important;
+	}
 </style>

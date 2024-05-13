@@ -17,25 +17,30 @@
             {
                 "id": 1,
                 "name": "Task 1",
-                "description": "",
+                "description": "Task 1 Desc",
                 "unlocked": true
             },
             {
                 "id": 2,
                 "name": "Task 2",
-                "description": "",
+                "description": "Task 2 Desc",
                 "unlocked": true,
-                "active": true
+                "password": "zwei"
             },
             {
                 "id": 3,
                 "name": "Task 3",
-                "description": ""
+                "description": "Task 3 Desc",
+                "unlocked": true,
+                "password": "drei"
             },
             {
                 "id": 4,
                 "name": "Task 4",
-                "description": ""
+                "description": "Task 4 Desc",
+                "unlocked": true,
+                "active": true,
+                "password": "vier"
             }
         ]
     },
