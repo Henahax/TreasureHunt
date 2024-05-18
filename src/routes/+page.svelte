@@ -20,36 +20,27 @@
 
 <section class="flex flex-col gap-2">
 	<h2>Active Treasure Hunt:</h2>
-	<a
-		href="event/beta"
-		class="card flex h-fit w-full border border-neutral-700 bg-[url('https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg')] bg-cover bg-no-repeat"
-	>
-		<div
-			class="card from-base-300 flex h-full w-full flex-col justify-between gap-2 bg-gradient-to-br from-35% to-transparent p-4"
-		>
-			<div>
-				<h2 class="text-3xl font-semibold">{activeEvent.name}</h2>
-				<div class="text-md">{activeEvent.description}</div>
-			</div>
+
+	<div class="card bg-base-100 w-full border border-neutral-700 shadow-xl">
+		<figure class="h-32">
+			<img src="https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg" alt="banner" />
+		</figure>
+		<div class="card-body p-4">
+			<h2 class="card-title">
+				{activeEvent.name}
+			</h2>
+			<p>{activeEvent.description}</p>
 			<progress class="progress progress-success w-full" value="33" max="100"></progress>
 
-			<div class="flex w-full flex-row flex-wrap gap-1">
-				{#if activeEvent.location}
-					<div class="badge gap-2">
-						<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
-					</div>
+			<div class="card-actions justify-end">
+				{#if activeEvent}
+					<a href="event/beta" class="btn btn-primary min-w-20">Continue</a>
+				{:else}
+					<a href="event/beta" class="btn btn-primary min-w-20">Start</a>
 				{/if}
-				{#if activeEvent.lang}
-					<div class="badge gap-2">
-						<i class="fa-solid fa-language"></i>{activeEvent.lang}
-					</div>
-				{/if}
-				{#each activeEvent.tags as tag}
-					<div class="badge gap-2">{tag}</div>
-				{/each}
 			</div>
 		</div>
-	</a>
+	</div>
 </section>
 <section class="flex flex-col gap-2">
 	<h2>Available Treasure Hunts:</h2>
@@ -74,7 +65,7 @@
 							</div>
 							<div class="badge gap-2"><i class="fa-solid fa-language"></i>{event.lang}</div>
 							{#if event.tags.length > 0}
-								<div class="badge gap-2">{event.tags.length}tags</div>
+								<div class="badge gap-2">{event.tags.length} {' '}tags</div>
 							{/if}
 						</div>
 					</a>

@@ -1,106 +1,53 @@
 <script lang="ts">
-	import { navStore } from '$lib/store';
-	import { titleStore } from '$lib/store';
+	import { navStore, titleStore } from '$lib/store';
 
-	import { Html5Qrcode } from 'html5-qrcode';
-	import { onMount } from 'svelte';
-	//import { onDestroy } from 'svelte';
 	import type { Event, Task } from '$lib/types';
-
-	let password = '';
-	let scanning = false;
-	let html5Qrcode: any;
-
-	onMount(init);
-	//onDestroy(close);
-
-	function init() {
-		html5Qrcode = new Html5Qrcode('reader');
-	}
-
-	function start() {
-		html5Qrcode.start(
-			{ facingMode: 'environment' },
-			{
-				fps: 10,
-				qrbox: { width: 250, height: 250 }
-			},
-			onScanSuccess,
-			onScanFailure
-		);
-		scanning = true;
-	}
-
-	async function stop() {
-		await html5Qrcode.stop();
-		scanning = false;
-	}
-
-	function onScanSuccess(decodedText: any, decodedResult: any) {
-		password = decodedText;
-		stop();
-	}
-
-	function onScanFailure(error) {}
-
-	function close() {
-		if (scanning) {
-			stop();
-		}
-	}
 
 	export let data: Event;
 
 	$navStore = '';
-	$titleStore = data.name;
+	$titleStore = '';
+
+	//temp
+	import events from '$lib/events.json';
+	let activeEvent = events[0];
 </script>
 
-<button class="btn btn-primary fixed bottom-20 right-4" onclick="my_modal_5.showModal()"
-	><i class="fa-solid fa-key"></i>Unlock Task</button
->
+<div class="card bg-base-200 w-full border border-neutral-700 shadow-xl">
+	<figure class="h-32">
+		<img
+			class="h-full w-full object-cover"
+			src="https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg"
+			alt="banner"
+		/>
+	</figure>
+	<div class="card-body p-4">
+		<h2 class="card-title">
+			{activeEvent.name}
+		</h2>
+		<p>{activeEvent.description}</p>
 
-<dialog id="my_modal_5" on:close={close} class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box flex w-full flex-col items-center gap-4">
-		<h2 class="text-lg">Scan QR-code or enter password</h2>
-
-		<reader id="reader" class={scanning ? '' : 'hidden'} />
-
-		<button class="btn btn-neutral w-full text-start" on:click={start}>
-			<i class="fa-solid fa-qrcode"></i>Scan QR-code
-		</button>
-
-		<label class="input input-bordered flex w-full items-center gap-2">
-			<i class="fa-solid fa-key"></i>
-			<input type="text" class="grow" placeholder="Enter password" />
-		</label>
-
-		<div class="flex w-full flex-row justify-between">
-			<button class="btn btn-primary self-end" on:click={start}>
-				<i class="fa-solid fa-check"></i>
-				Send
-			</button>
-			<form method="dialog">
-				<button class="btn">
-					<i class="fa-solid fa-xmark"></i>
-					Schließen
-				</button>
-			</form>
+		<div class="flex w-full flex-row flex-wrap gap-1">
+			{#if activeEvent.location}
+				<div class="badge badge-outline gap-2">
+					<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
+				</div>
+			{/if}
+			{#if activeEvent.lang}
+				<div class="badge badge-outline gap-2">
+					<i class="fa-solid fa-language"></i>{activeEvent.lang}
+				</div>
+			{/if}
+			{#each activeEvent.tags as tag}
+				<div class="badge badge-outline gap-2">{tag}</div>
+			{/each}
+		</div>
+		<div class="card-actions justify-end">
+			{#if activeEvent}
+				<a href="event/beta" class="btn btn-primary min-w-20">Continue</a>
+			{:else}
+				<a href="event/beta" class="btn btn-primary min-w-20">Start</a>
+			{/if}
 		</div>
 	</div>
-
-	<form method="dialog" class="modal-backdrop">
-		<button id="closePassword" on:click={close}></button>
-	</form>
-</dialog>
-
-{#each data.tasks as task}
-	{#if task.active}
-		<h2>{task.name}</h2>
-	{/if}
-{/each}
-
-<style>
-	:global(video) {
-		width: 100% !important;
-	}
-</style>
+</div>
