@@ -22,7 +22,7 @@
 	<h2>Active Treasure Hunt:</h2>
 
 	<div class="card bg-base-200 w-full border border-neutral-700 shadow-xl">
-		<figure class="h-32">
+		<figure class="h-16">
 			<img
 				class="h-full w-full object-cover"
 				src="https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg"
