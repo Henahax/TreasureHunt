@@ -11,6 +11,14 @@
 	//temp
 	import events from '$lib/events.json';
 	let activeEvent = events[0];
+
+	function reset() {
+		var doReset = confirm('Message?');
+		if (doReset) {
+			window.location = '/';
+			//todo: reset active treasurehunt
+		}
+	}
 </script>
 
 <div class="card bg-base-200 w-full border border-neutral-700 shadow-xl">
@@ -44,9 +52,16 @@
 		</div>
 		<div class="card-actions justify-end">
 			{#if activeEvent}
-				<a href="event/beta" class="btn btn-primary min-w-20">Continue</a>
+				<a href="event/beta" class="btn btn-primary min-w-20"
+					><i class="fa-solid fa-play"></i>Continue</a
+				>
+				<button class="btn btn-neutral" on:click={reset}
+					><i class="fa-solid fa-trash-can"></i>Reset</button
+				>
 			{:else}
-				<a href="event/beta" class="btn btn-primary min-w-20">Start</a>
+				<a href="event/beta" class="btn btn-primary min-w-20"
+					><i class="fa-solid fa-play"></i>Start</a
+				>
 			{/if}
 		</div>
 	</div>

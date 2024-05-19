@@ -21,30 +21,37 @@
 <section class="flex flex-col gap-2">
 	<h2>Active Treasure Hunt:</h2>
 
-	<div class="card bg-base-100 w-full border border-neutral-700 shadow-xl">
+	<div class="card bg-base-200 w-full border border-neutral-700 shadow-xl">
 		<figure class="h-32">
-			<img src="https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg" alt="banner" />
+			<img
+				class="h-full w-full object-cover"
+				src="https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg"
+				alt="banner"
+			/>
 		</figure>
+		<progress class="progress progress-success w-full" value="33" max="100"></progress>
+
 		<div class="card-body p-4">
 			<h2 class="card-title">
 				{activeEvent.name}
 			</h2>
-			<p>{activeEvent.description}</p>
-			<progress class="progress progress-success w-full" value="33" max="100"></progress>
+			<div class="flex flex-row justify-between gap-4">
+				<p>{activeEvent.description}</p>
 
-			<div class="card-actions justify-end">
-				{#if activeEvent}
-					<a href="event/beta" class="btn btn-primary min-w-20">Continue</a>
-				{:else}
-					<a href="event/beta" class="btn btn-primary min-w-20">Start</a>
-				{/if}
+				<div class="card-actions self-end">
+					{#if activeEvent}
+						<a href="event/beta" class="btn btn-primary min-w-20">Continue</a>
+					{:else}
+						<a href="event/beta" class="btn btn-primary min-w-20">Start</a>
+					{/if}
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 <section class="flex flex-col gap-2">
 	<h2>Available Treasure Hunts:</h2>
-	<div class="bg-base-200 rounded-lg">
+	<div class="bg-base-200 rounded-lg border border-neutral-700 shadow-xl">
 		<label class="input input-bordered flex items-center gap-2">
 			<i class="fa-solid fa-magnifying-glass text-sm"></i>
 			<input type="text" class="grow" placeholder="Search" bind:value={filter} />
