@@ -26,7 +26,7 @@
 				href="/"
 				class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
 			>
-				<i class="fa-solid fa-list-ul"></i>
+				<i class="fa-regular fa-map"></i>
 				<div class="hidden md:block">Treasure Hunts</div>
 			</a>
 		</li>
@@ -56,7 +56,7 @@
 		</li>
 	</ul>
 </nav>
-<main class="mb-16 flex flex-col gap-4 p-4 md:mb-0 md:mt-16">
+<main class="mx-auto mb-16 flex max-w-screen-lg flex-col gap-4 p-4 md:mb-0 md:mt-16">
 	<h1 class="text-2xl">{$titleStore}</h1>
 	<slot />
 </main>
