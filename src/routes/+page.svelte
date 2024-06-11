@@ -21,7 +21,7 @@
 <section class="flex flex-col gap-2">
 	<h2>Active Treasure Hunt:</h2>
 
-	<div class="card bg-base-200 w-full border border-neutral-700 shadow-xl">
+	<div class="card bg-base-200 w-full shadow-xl">
 		<figure class="h-16">
 			<img
 				class="h-full w-full object-cover"
@@ -51,7 +51,7 @@
 </section>
 <section class="flex flex-col gap-2">
 	<h2>Available Treasure Hunts:</h2>
-	<div class="bg-base-200 rounded-lg border border-neutral-700 shadow-xl">
+	<div class="bg-base-200 rounded-lg shadow-xl">
 		<label class="input input-bordered flex items-center gap-2">
 			<i class="fa-solid fa-magnifying-glass text-sm"></i>
 			<input type="text" class="grow" placeholder="Search" bind:value={filter} />
