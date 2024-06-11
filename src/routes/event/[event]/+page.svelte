@@ -37,17 +37,17 @@
 
 		<div class="flex w-full flex-row flex-wrap gap-1">
 			{#if activeEvent.location}
-				<div class="badge badge-outline gap-2">
+				<div class="badge badge-neutral gap-2">
 					<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
 				</div>
 			{/if}
 			{#if activeEvent.lang}
-				<div class="badge badge-outline gap-2">
+				<div class="badge badge-neutral gap-2">
 					<i class="fa-solid fa-language"></i>{activeEvent.lang}
 				</div>
 			{/if}
 			{#each activeEvent.tags as tag}
-				<div class="badge badge-outline gap-2">{tag}</div>
+				<div class="badge badge-neutral gap-2">{tag}</div>
 			{/each}
 		</div>
 		<div class="card-actions justify-end">
