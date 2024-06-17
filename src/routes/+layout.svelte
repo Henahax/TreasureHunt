@@ -1,10 +1,25 @@
 <script>
 	import './styles.css';
+	import { onNavigate } from '$app/navigation';
 	import { navStore } from '$lib/store';
 	import { titleStore } from '$lib/store';
 	import { langStore } from '$lib/store';
 	import { onMount } from 'svelte';
 	import lang from '$lib/lang.json';
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
+
 	onMount(loadLang);
 
 	function loadLang() {
