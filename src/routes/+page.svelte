@@ -66,13 +66,15 @@
 				<li>
 					<a href="event/{event.id}" class="flex flex-row justify-between">
 						<div>{event.name}</div>
-						<div class="text-right">
-							<div class="badge gap-2">
+						<div class="flex flex-wrap justify-end gap-1 text-right">
+							<div class="badge badge-neutral gap-1">
 								<i class="fa-solid fa-location-dot"></i>{event.location}
 							</div>
-							<div class="badge gap-2"><i class="fa-solid fa-language"></i>{event.lang}</div>
+							<div class="badge badge-neutral gap-1">
+								<i class="fa-solid fa-language"></i>{event.lang}
+							</div>
 							{#if event.tags.length > 0}
-								<div class="badge gap-2">{event.tags.length} {' '}tags</div>
+								<div class="badge badge-neutral gap-1">{event.tags.length} {' '}tags</div>
 							{/if}
 						</div>
 					</a>

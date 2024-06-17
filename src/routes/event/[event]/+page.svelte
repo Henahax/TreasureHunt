@@ -29,7 +29,7 @@
 			alt="banner"
 		/>
 	</figure>
-	<div class="card-body p-4">
+	<div class="card-body flex flex-col gap-2 p-4">
 		<h2 class="card-title">
 			{activeEvent.name}
 		</h2>
@@ -37,17 +37,17 @@
 
 		<div class="flex w-full flex-row flex-wrap gap-1">
 			{#if activeEvent.location}
-				<div class="badge badge-outline gap-2">
+				<div class="badge badge-neutral gap-1">
 					<i class="fa-solid fa-location-dot"></i>{activeEvent.location}
 				</div>
 			{/if}
 			{#if activeEvent.lang}
-				<div class="badge badge-outline gap-2">
+				<div class="badge badge-neutral gap-1">
 					<i class="fa-solid fa-language"></i>{activeEvent.lang}
 				</div>
 			{/if}
 			{#each activeEvent.tags as tag}
-				<div class="badge badge-outline gap-2">{tag}</div>
+				<div class="badge badge-neutral gap-1">{tag}</div>
 			{/each}
 		</div>
 		<div class="card-actions justify-end">
