@@ -2,10 +2,6 @@
 	import './styles.css';
 	import { onNavigate } from '$app/navigation';
 	import { navStore } from '$lib/store';
-	import { titleStore } from '$lib/store';
-	import { langStore } from '$lib/store';
-	import { onMount } from 'svelte';
-	import lang from '$lib/lang.json';
 
 	onNavigate((navigation) => {
 		// @ts-ignore
@@ -19,59 +15,54 @@
 			});
 		});
 	});
-
-	onMount(loadLang);
-
-	function loadLang() {
-		$langStore = lang;
-	}
 </script>
 
-<nav
-	class="md:navbar bg-base-200 fixed bottom-0 z-50 flex h-16 w-full flex-row items-center justify-center md:top-0"
->
-	<ul
-		class="max-md:btm-nav md:menu md:menu-horizontal flex h-full w-full flex-row items-center justify-between md:mx-auto md:w-fit"
+<main class="flex min-h-dvh w-full">
+	<nav
+		class="md:navbar bg-base-200 fixed bottom-0 z-50 flex h-16 w-full flex-row items-center justify-center md:top-0"
 	>
-		<li
-			class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
+		<ul
+			class="max-md:btm-nav md:menu md:menu-horizontal flex h-full w-full flex-row items-center justify-between md:mx-auto md:w-fit"
+		>
+			<li
+				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
 			{$navStore === 'home' ? 'active' : ''}"
-		>
-			<a
-				href="/"
-				class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
 			>
-				<i class="fa-regular fa-map"></i>
-				<div class="hidden md:block">Treasure Hunts</div>
-			</a>
-		</li>
-		<li
-			class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
+				<a
+					href="/"
+					class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+				>
+					<i class="fa-regular fa-map"></i>
+					<div class="hidden md:block">Treasure Hunts</div>
+				</a>
+			</li>
+			<li
+				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
 			{$navStore === 'about' ? 'active' : ''}"
-		>
-			<a
-				href="/about"
-				class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
 			>
-				<i class="fa-solid fa-question"></i>
-				<div class="hidden md:block">About</div>
-			</a>
-		</li>
-		<li
-			class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
+				<a
+					href="/about"
+					class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+				>
+					<i class="fa-solid fa-question"></i>
+					<div class="hidden md:block">About</div>
+				</a>
+			</li>
+			<li
+				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
 		{$navStore === 'settings' ? 'active' : ''}"
-		>
-			<a
-				href="/settings"
-				class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
 			>
-				<i class="fa-solid fa-gear"></i>
-				<div class="hidden md:block">Settings</div>
-			</a>
-		</li>
-	</ul>
-</nav>
-<main class="mx-auto mb-16 flex max-w-screen-lg flex-col gap-4 p-4 md:mb-0 md:mt-16">
-	<h1 class="text-2xl">{$titleStore}</h1>
-	<slot />
+				<a
+					href="/settings"
+					class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+				>
+					<i class="fa-solid fa-gear"></i>
+					<div class="hidden md:block">Settings</div>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="mb-16 flex w-full flex-grow md:mb-0 md:pt-16">
+		<slot />
+	</div>
 </main>
