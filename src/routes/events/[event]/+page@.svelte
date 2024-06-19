@@ -24,9 +24,9 @@
 				return;
 			}
 		}
-		console.log(event);
-		activeEventStore.set(event);
-		window.location.href = `/events/${event.id}/${event.tasks[0].id}`;
+		$activeEventStore = event;
+
+		window.location.href = `/events/${$activeEventStore.id}/${$activeEventStore.tasks[0].id}`;
 	}
 </script>
 
