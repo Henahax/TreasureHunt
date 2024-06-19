@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import './styles.css';
 	import { onNavigate } from '$app/navigation';
-	import { navStore } from '$lib/store';
+	import { navStore, activeEventStore } from '$lib/store';
 
 	onNavigate((navigation) => {
 		// @ts-ignore
@@ -26,10 +26,10 @@
 		>
 			<li
 				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
-			{$navStore === 'home' ? 'active' : ''}"
+			{$navStore === 'events' ? 'active' : ''}"
 			>
 				<a
-					href="/"
+					href="/events"
 					class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
 				>
 					<i class="fa-regular fa-map"></i>
@@ -38,7 +38,28 @@
 			</li>
 			<li
 				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
-			{$navStore === 'about' ? 'active' : ''}"
+			{$navStore === 'task' ? 'active' : ''} {$activeEventStore.length === 0 ? 'disabled' : ''}"
+			>
+				{#if $activeEventStore.length === 0}
+					<button
+						disabled
+						class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+					>
+						<i class="fa-solid fa-play"></i>
+						<div class="hidden md:block">Continue</div>
+					</button>
+				{:else}
+					<a
+						href="/events"
+						class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+					>
+						<i class="fa-solid fa-play"></i>
+						<div class="hidden md:block">Continue</div>
+					</a>{/if}
+			</li>
+			<li
+				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
+		{$navStore === 'about' ? 'active' : ''}"
 			>
 				<a
 					href="/about"
@@ -48,21 +69,9 @@
 					<div class="hidden md:block">About</div>
 				</a>
 			</li>
-			<li
-				class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
-		{$navStore === 'settings' ? 'active' : ''}"
-			>
-				<a
-					href="/settings"
-					class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
-				>
-					<i class="fa-solid fa-gear"></i>
-					<div class="hidden md:block">Settings</div>
-				</a>
-			</li>
 		</ul>
 	</nav>
-	<div class="mb-16 flex w-full flex-grow md:mb-0 md:pt-16">
+	<div id="layoutRoot" class="mb-16 flex w-full flex-grow md:mb-0 md:pt-16">
 		<slot />
 	</div>
 </main>

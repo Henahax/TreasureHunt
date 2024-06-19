@@ -2,7 +2,8 @@
     {
         "id": "beta",
         "name": "Beta-Test Schatzsuche",
-        "description": "Erste Schatzsuche zum testen",
+        "subtitle": "Erste Schatzsuche zum testen",
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         "location": "online",
         "lang": "de",
         "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
@@ -42,14 +43,32 @@
                 "active": true,
                 "password": "vier"
             }
-        ]
+        ],
+        "unlocked": true
     },
     {
-        "id": "dummy",
-        "name": "Dummy Treasure Hunt",
-        "description": "another treasure hunt to fill the list",
+        "id": "test",
+        "name": "Test Treasure",
+        "subtitle": "2nd test for testing purposes",
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         "location": "Munich",
         "lang": "en",
-        "tags": []
+        "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
+        "tags": [
+            "Beta-Test",
+            "phone",
+            "web",
+            "camera"
+        ],
+        "tasks": [
+            {
+                "id": 1,
+                "name": "Task 1",
+                "description": "Task 1 Desc",
+                "unlocked": true
+            }
+        ],
+        "unlocked": false,
+        "code": "test2024"
     }
 ]

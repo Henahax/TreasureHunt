@@ -1,11 +1,7 @@
-export enum Language {
-    en, de
-}
-
 export type Task = {
-    id: number,
+    id: string,
     name: string,
-    description:  string,
+    description: string,
     unlocked: boolean = false,
     active: boolean = false
 }
@@ -13,9 +9,13 @@ export type Task = {
 export type Event = {
     id: string,
     name: string,
+    subtitle: string,
     description: string,
-    lang: Language,
+    lang: string,
+    location: string,
     image: string,
     tags: string[],
-    tasks: Task[]
+    tasks: Task[],
+    unlocked: boolean = false,
+    code: string = ""
 };
