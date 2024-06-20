@@ -6,5 +6,5 @@
 </script>
 
 <PageContainer>
-	<div>Test</div>
+	<div>About</div>
 </PageContainer>

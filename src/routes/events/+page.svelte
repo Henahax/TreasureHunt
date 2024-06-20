@@ -3,6 +3,7 @@
 	import TreasureHuntCode from '$lib/TreasureHuntCode.svelte';
 
 	import { navStore, allEventsStore, activeEventStore } from '$lib/store';
+	import Tags from '$lib/Tags.svelte';
 	$navStore = 'events';
 
 	$: filteredEvents = $allEventsStore.filter((event: Event) => {
@@ -32,8 +33,8 @@
 
 <TreasureHuntCode />
 
-<div class="bg-base-200 rounded-lg shadow-xl">
-	<label class="input input-bordered flex items-center gap-2">
+<div class="bg-base-200 card card-bordered border-neutral-700 shadow-xl">
+	<label class="input input-bordered input-sm flex items-center gap-2">
 		<i class="fa-solid fa-magnifying-glass"></i>
 		<input type="text" class="grow" placeholder="Search" bind:value={filter} />
 	</label>
@@ -47,17 +48,7 @@
 			<li>
 				<a href="events/{event.id}" class="flex flex-row justify-between">
 					<div>{event.name}</div>
-					<div class="flex flex-wrap justify-end gap-1 text-right">
-						<div class="badge badge-neutral gap-1 text-xs">
-							<i class="fa-solid fa-location-dot"></i>{event.location}
-						</div>
-						<div class="badge badge-neutral gap-1 text-xs">
-							<i class="fa-solid fa-language"></i>{event.lang}
-						</div>
-						{#if event.tags.length > 0}
-							<div class="badge badge-neutral gap-1 text-xs">{event.tags.length} {' '}tags</div>
-						{/if}
-					</div>
+					<Tags {event} short={true} />
 				</a>
 			</li>
 			{#if index !== filteredEvents.length - 1}
