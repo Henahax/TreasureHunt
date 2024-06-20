@@ -18,11 +18,12 @@
 </script>
 
 <div class="join">
-	<label class="input input-bordered input-primary join-item flex w-full items-center gap-2">
-		<i class="fa-regular fa-map"></i>
+	<label class="input input-bordered join-item flex w-full items-center gap-2">
+		<i class="fa-solid fa-scroll"></i>
 		<input type="text" class="grow" placeholder="Treasure Hunt Code" bind:value={code} />
 	</label>
-	<button class="btn join-item btn-primary" on:click={testCode}>
+
+	<button class="btn join-item" on:click={testCode}>
 		<i class="fa-solid fa-check"></i>
 	</button>
 </div>
