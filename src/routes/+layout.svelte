@@ -43,9 +43,9 @@
 				</li>
 				<li
 					class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
-			{$navStore === 'task' ? 'active' : ''} {$activeEventStore.length === 0 ? 'disabled' : ''}"
+			{$navStore === 'task' ? 'active' : ''} {$activeEventStore ? 'disabled' : ''}"
 				>
-					{#if $activeEventStore.length === 0}
+					{#if $activeEventStore}
 						<button
 							disabled
 							class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"

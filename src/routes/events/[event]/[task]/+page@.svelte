@@ -3,17 +3,18 @@
 	import { page } from '$app/stores';
 	import { navStore, activeEventStore } from '$lib/store';
 	import PageContainer from '$lib/PageContainer.svelte';
+
 	$navStore = 'task';
 
 	let taskId = $page.params.task;
 
-	console.log(taskId);
+	let task: Task;
 
 	console.log($activeEventStore);
 
-	let task: Task = $activeEventStore.find((task: Task) => task.id === taskId);
-
-	console.log(task);
+	if ($activeEventStore) {
+		task = $activeEventStore.tasks.find((task: Task) => task.id === taskId) as Task;
+	}
 </script>
 
 <div class="drawer lg:drawer-open">
@@ -21,7 +22,7 @@
 	<div class="drawer-content flex flex-col items-center justify-center">
 		<!-- Page content here -->
 		<PageContainer>
-			<h2>Test</h2>
+			<h2>{task.name}</h2>
 			<label
 				for="my-drawer-2"
 				class="btn btn-primary drawer-button absolute bottom-4 w-fit lg:hidden"

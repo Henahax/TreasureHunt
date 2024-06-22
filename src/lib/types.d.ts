@@ -1,21 +1,21 @@
 export type Task = {
-    id: string,
-    name: string,
-    description: string,
-    unlocked: boolean = false,
-    active: boolean = false
-}
+	id: string;
+	name: string;
+	description: string;
+	unlocked: boolean;
+	active?: boolean;
+};
 
 export type Event = {
-    id: string,
-    name: string,
-    subtitle: string,
-    description: string,
-    lang: string,
-    location: string,
-    image: string,
-    tags: string[],
-    tasks: Task[],
-    unlocked: boolean = false,
-    code: string = ""
+	id: string;
+	name: string;
+	subtitle: string;
+	description: string;
+	lang: string;
+	location: string;
+	image: string;
+	tags: string[];
+	tasks: Task[];
+	unlocked: boolean;
+	code?: string;
 };

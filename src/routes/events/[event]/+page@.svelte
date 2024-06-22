@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Event } from '$lib/types';
+	import { goto } from '$app/navigation';
+
 	import { page } from '$app/stores';
 	import { navStore, allEventsStore, activeEventStore } from '$lib/store';
 	import Tags from '$lib/Tags.svelte';
@@ -8,27 +10,19 @@
 
 	let eventId = $page.params.event;
 
-	let event: Event = $allEventsStore.find((event: Event) => event.id === eventId);
+	let event: Event = $allEventsStore.find((event: Event) => event.id === eventId) as Event;
 
 	function resetActiveEvent() {
-		confirm(
-			'Are you sure you want to reset the active treasure hunt?\n\nAll progress will be lost.\n\nYou can restore progress by restarting the treasure hunt and reentering your last password.'
-		) && activeEventStore.set([]);
+		//TODO
 	}
 
 	function startEvent() {
-		if ($activeEventStore.length !== 0) {
-			if (
-				!confirm(
-					'Another treasure hunt is already active. Do you want to overwrite it?\n\nAll progress will be lost.\n\nYou can restore progress by restarting the treasure hunt and reentering your last password.'
-				)
-			) {
-				return;
-			}
-		}
-		$activeEventStore = event;
+		//TODO
+		//Wirklich überschreiben?
 
-		window.location.href = `/events/${$activeEventStore.id}/${$activeEventStore.tasks[0].id}`;
+		activeEventStore.set(event);
+
+		goto(`/events/${$activeEventStore.id}/${$activeEventStore.tasks[0].id}`);
 	}
 </script>
 

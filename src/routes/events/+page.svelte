@@ -19,7 +19,7 @@
 <h2 class="text-2xl">Events</h2>
 
 <div>
-	{#if $activeEventStore.length === 0}
+	{#if $activeEventStore === undefined}
 		<span>Featured Treasure Hunt</span>
 	{:else}
 		<span>Active Treasure Hunt</span>
