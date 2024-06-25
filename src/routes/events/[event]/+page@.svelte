@@ -12,8 +12,16 @@
 
 	let event: Event = $allEventsStore.find((event: Event) => event.id === eventId) as Event;
 
+	let isActiveEvent = false;
+	if ($activeEventStore && event.id === $activeEventStore.id) {
+		isActiveEvent = true;
+	}
+
 	function resetActiveEvent() {
-		//TODO
+		if (confirm('?')) {
+			activeEventStore.set(undefined);
+			isActiveEvent = false;
+		}
 	}
 
 	function startEvent() {
@@ -53,17 +61,21 @@
 		</div>
 
 		<div class="flex flex-row items-center justify-center gap-4">
-			<button class="btn btn-primary max-w-xs grow" on:click={startEvent}>
-				<i class="fa-solid fa-play"></i>Start
-			</button>
+			{#if isActiveEvent}
+				<button class="btn btn-success max-w-xs grow">
+					<i class="fa-solid fa-play"></i>Continue
+				</button>
+			{:else}
+				<button class="btn btn-primary max-w-xs grow" on:click={startEvent}>
+					<i class="fa-solid fa-play"></i>Start
+				</button>
+			{/if}
 
-			<button class="btn btn-success max-w-xs grow">
-				<i class="fa-solid fa-play"></i>Continue
-			</button>
-
-			<button class="btn btn-neutral" on:click={resetActiveEvent}>
-				<i class="fa-solid fa-eject"></i>Reset
-			</button>
+			{#if $activeEventStore}
+				<button class="btn btn-neutral" on:click={resetActiveEvent}>
+					<i class="fa-solid fa-eject"></i>Reset
+				</button>
+			{/if}
 		</div>
 	</main>
 </div>

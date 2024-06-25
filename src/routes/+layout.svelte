@@ -3,6 +3,8 @@
 	import { onNavigate } from '$app/navigation';
 	import { navStore, activeEventStore } from '$lib/store';
 
+	// TODO: load treasure hunt from cookie
+
 	onNavigate((navigation) => {
 		// @ts-ignore
 		if (!document.startViewTransition) return;
@@ -77,7 +79,7 @@
 			</ul>
 		</div>
 	</nav>
-	<div id="layoutRoot" class="mb-16 flex w-full flex-grow md:mb-0 md:pt-16">
+	<div id="layoutRoot" class="mb-16 flex w-full flex-grow justify-center md:mb-0 md:pt-16">
 		<slot />
 	</div>
 </main>

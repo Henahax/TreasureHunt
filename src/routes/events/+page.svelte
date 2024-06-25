@@ -14,21 +14,31 @@
 		return nameMatch || langMatch || locationMatch || tagMatch;
 	});
 	let filter = '';
+
+	let tutorial = $allEventsStore.filter((event: Event) => {
+		const test = event.id === 'tutorial';
+		return test;
+	})[0];
 </script>
 
 <h2 class="text-2xl">Events</h2>
 
 <div>
-	{#if $activeEventStore === undefined}
-		<span>Featured Treasure Hunt</span>
-	{:else}
+	{#if $activeEventStore}
 		<span>Active Treasure Hunt</span>
+		<a class="card w-full bg-pink-800 p-4" href="events/{$activeEventStore.id}">
+			<h3 class="text-lg">{$activeEventStore.name}</h3>
+			<p>{$activeEventStore.subtitle}</p>
+			<Tags event={$activeEventStore} />
+		</a>
+	{:else}
+		<span>Featured Treasure Hunt</span>
+		<a class="card w-full bg-pink-800 p-4" href="events/{tutorial.id}">
+			<h3 class="text-lg">{tutorial.name}</h3>
+			<p>{tutorial.subtitle}</p>
+			<Tags event={tutorial} />
+		</a>
 	{/if}
-	<a class="card w-full bg-pink-800 p-4" href="events/test">
-		<h3 class="text-lg">Beta Treasure Hunt</h3>
-		<p>Test test test</p>
-		<div>Tags</div>
-	</a>
 </div>
 
 <TreasureHuntCode />

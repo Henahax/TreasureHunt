@@ -1,7 +1,6 @@
 <script lang="ts">
 	import TreasureHuntCode from '$lib/TreasureHuntCode.svelte';
 	import { navStore } from '$lib/store';
-	$navStore = '';
 </script>
 
 <main class="flex h-full w-full flex-grow flex-col justify-center bg-green-900 p-8">

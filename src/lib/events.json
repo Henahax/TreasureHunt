@@ -1,5 +1,51 @@
 [
     {
+        "id": "tutorial",
+        "name": "Tutorial",
+        "subtitle": "Treasure Hunt for initiation",
+        "description": "The goal of this treasure hunt is to get to know the app and its features.\nYou will be guided through the app and learn how to solve tasks.\nHave fun!",
+        "location": "online",
+        "lang": "en",
+        "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
+        "tags": [
+            "tutorial",
+            "phone",
+            "web",
+            "camera"
+        ],
+        "tasks": [
+            {
+                "id": "task1",
+                "name": "Task 1",
+                "description": "Task 1 Desc",
+                "unlocked": true
+            },
+            {
+                "id": "task2",
+                "name": "Task 2",
+                "description": "Task 2 Desc",
+                "unlocked": true,
+                "password": "zwei"
+            },
+            {
+                "id": "task3",
+                "name": "Task 3",
+                "description": "Task 3 Desc",
+                "unlocked": true,
+                "password": "drei"
+            },
+            {
+                "id": "task4",
+                "name": "Task 4",
+                "description": "Task 4 Desc",
+                "unlocked": true,
+                "active": true,
+                "password": "vier"
+            }
+        ],
+        "unlocked": true
+    },
+    {
         "id": "beta",
         "name": "Beta-Test Schatzsuche",
         "subtitle": "Erste Schatzsuche zum testen",
@@ -45,30 +91,5 @@
             }
         ],
         "unlocked": true
-    },
-    {
-        "id": "test",
-        "name": "Test Treasure",
-        "subtitle": "2nd test for testing purposes",
-        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        "location": "Munich",
-        "lang": "en",
-        "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
-        "tags": [
-            "Beta-Test",
-            "phone",
-            "web",
-            "camera"
-        ],
-        "tasks": [
-            {
-                "id": "task1",
-                "name": "Task 1",
-                "description": "Task 1 Desc",
-                "unlocked": true
-            }
-        ],
-        "unlocked": false,
-        "code": "test2024"
     }
 ]
