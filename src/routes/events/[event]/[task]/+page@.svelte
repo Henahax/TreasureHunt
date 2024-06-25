@@ -77,17 +77,14 @@
 		<!-- Page content here -->
 		<PageContainer>
 			<h2 class="text-2xl">{task.name}</h2>
-			<label
-				for="my-drawer-2"
-				class="btn drawer-button fixed bottom-20 w-fit md:bottom-4 lg:hidden"
-			>
-				<i class="fa-solid fa-list-check"></i><span class="hidden sm:block">Steps</span>
-			</label>
-			<button
-				class="btn btn-primary fixed bottom-20 right-4 w-fit md:bottom-4"
-				onclick="my_modal_5.showModal()"
-				><i class="fa-solid fa-key"></i><span class="hidden sm:block">Password</span>
-			</button>
+			<div class="fixed bottom-0 flex w-full justify-between md:bottom-0 lg:justify-end">
+				<label for="my-drawer-2" class="btn drawer-button w-fit lg:hidden">
+					<i class="fa-solid fa-list-check"></i><span class="hidden sm:block">Steps</span>
+				</label>
+				<button class="btn btn-primary w-fit" onclick="my_modal_5.showModal()"
+					><i class="fa-solid fa-key"></i><span class="hidden sm:block">Password</span>
+				</button>
+			</div>
 		</PageContainer>
 	</div>
 	<div class="drawer-side">
