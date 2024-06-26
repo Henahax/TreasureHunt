@@ -2,9 +2,20 @@
 	import type { Event } from '$lib/types';
 	export let event: Event;
 	export let short: boolean = false;
+	export let position: string = 'center';
+
+	let justify = 'justify-center';
+
+	if (position === 'start') {
+		justify = 'justify-start';
+	} else if (position === 'center') {
+		justify = 'justify-center';
+	} else if (position === 'end') {
+		justify = 'justify-end';
+	}
 </script>
 
-<div class="flex w-fit flex-wrap justify-end gap-1 {short ? 'justify-end' : 'justify-center'}">
+<div class="flex w-fit flex-wrap gap-1 {justify}">
 	<div class="badge badge-neutral gap-1 text-xs">
 		<i class="fa-solid fa-location-dot"></i>{event.location}
 	</div>

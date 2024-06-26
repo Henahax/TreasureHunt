@@ -16,8 +16,8 @@
 	let filter = '';
 
 	let tutorial = $allEventsStore.filter((event: Event) => {
-		const test = event.id === 'tutorial';
-		return test;
+		const results = event.id === 'tutorial';
+		return results;
 	})[0];
 </script>
 
@@ -29,14 +29,14 @@
 		<a class="card w-full bg-pink-800 p-4" href="events/{$activeEventStore.id}">
 			<h3 class="text-lg">{$activeEventStore.name}</h3>
 			<p>{$activeEventStore.subtitle}</p>
-			<Tags event={$activeEventStore} />
+			<Tags event={$activeEventStore} position={'start'} />
 		</a>
 	{:else}
 		<span>Featured Treasure Hunt</span>
 		<a class="card w-full bg-pink-800 p-4" href="events/{tutorial.id}">
 			<h3 class="text-lg">{tutorial.name}</h3>
 			<p>{tutorial.subtitle}</p>
-			<Tags event={tutorial} />
+			<Tags event={tutorial} position={'start'} />
 		</a>
 	{/if}
 </div>
