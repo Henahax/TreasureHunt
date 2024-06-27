@@ -58,7 +58,7 @@
 			<li>
 				<a href="events/{event.id}" class="flex flex-row justify-between">
 					<div>{event.name}</div>
-					<Tags {event} short={true} />
+					<Tags {event} short={true} position={'end'} />
 				</a>
 			</li>
 			{#if index !== filteredEvents.length - 1}
