@@ -26,14 +26,14 @@
 <div>
 	{#if $activeEventStore}
 		<span>Active Treasure Hunt</span>
-		<a class="card w-full bg-pink-800 p-4" href="events/{$activeEventStore.id}">
+		<a class="card treasureHunt w-full gap-2 bg-pink-800 p-4" href="events/{$activeEventStore.id}">
 			<h3 class="text-lg">{$activeEventStore.name}</h3>
 			<p>{$activeEventStore.subtitle}</p>
 			<Tags event={$activeEventStore} position={'start'} />
 		</a>
 	{:else}
 		<span>Featured Treasure Hunt</span>
-		<a class="card w-full bg-pink-800 p-4" href="events/{tutorial.id}">
+		<a class="card treasureHunt w-full gap-2 bg-pink-800 p-4" href="events/{tutorial.id}">
 			<h3 class="text-lg">{tutorial.name}</h3>
 			<p>{tutorial.subtitle}</p>
 			<Tags event={tutorial} position={'start'} />
@@ -67,3 +67,13 @@
 		{/each}
 	</ul>
 </div>
+
+<style>
+	.treasureHunt {
+		background: rgba(0, 0, 0, 0.5)
+			url('https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100');
+		background-size: cover;
+		background-blend-mode: darken;
+		background-position: center;
+	}
+</style>

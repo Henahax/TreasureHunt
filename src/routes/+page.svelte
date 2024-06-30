@@ -1,9 +1,8 @@
 <script lang="ts">
 	import TreasureHuntCode from '$lib/TreasureHuntCode.svelte';
-	import { navStore } from '$lib/store';
 </script>
 
-<main class="flex h-full w-full flex-grow flex-col justify-center bg-green-900 p-8">
+<main class="treasureHunt flex h-full w-full flex-grow flex-col justify-center p-8">
 	<div class="mx-auto flex max-w-screen-lg flex-col gap-2">
 		<TreasureHuntCode />
 		<div class="divider">OR</div>
@@ -12,3 +11,13 @@
 		</a>
 	</div>
 </main>
+
+<style>
+	.treasureHunt {
+		background: rgba(0, 0, 0, 0.5)
+			url('https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100');
+		background-size: cover;
+		background-blend-mode: darken;
+		background-position: center;
+	}
+</style>

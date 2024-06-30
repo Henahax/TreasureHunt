@@ -34,7 +34,7 @@
 	}
 </script>
 
-<div class="h-full w-full bg-pink-800 p-8">
+<div class="treasureHunt h-full w-full bg-pink-800 p-8">
 	<main class="mx-auto flex h-full w-full max-w-screen-md flex-col justify-center gap-16">
 		<div class="flex flex-col gap-4 text-center">
 			<div>
@@ -79,3 +79,13 @@
 		</div>
 	</main>
 </div>
+
+<style>
+	.treasureHunt {
+		background: rgba(0, 0, 0, 0.5)
+			url('https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100');
+		background-size: cover;
+		background-blend-mode: darken;
+		background-position: center;
+	}
+</style>
