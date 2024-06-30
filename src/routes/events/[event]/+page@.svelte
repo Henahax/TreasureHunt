@@ -34,7 +34,10 @@
 	}
 </script>
 
-<div class="treasureHunt h-full w-full bg-pink-800 p-8">
+<div
+	class="treasureHunt h-full w-full bg-cover bg-center p-8 bg-blend-darken"
+	style="background-image: url('{event.image}'); background-color: rgba(0,0,0,0.66);"
+>
 	<main class="mx-auto flex h-full w-full max-w-screen-md flex-col justify-center gap-16">
 		<div class="flex flex-col gap-4 text-center">
 			<div>

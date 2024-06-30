@@ -19,6 +19,11 @@
 		const results = event.id === 'tutorial';
 		return results;
 	})[0];
+
+	let featured = tutorial;
+	if ($activeEventStore) {
+		featured = $activeEventStore;
+	}
 </script>
 
 <h2 class="text-2xl">Events</h2>
@@ -26,19 +31,18 @@
 <div>
 	{#if $activeEventStore}
 		<span>Active Treasure Hunt</span>
-		<a class="card treasureHunt w-full gap-2 bg-pink-800 p-4" href="events/{$activeEventStore.id}">
-			<h3 class="text-lg">{$activeEventStore.name}</h3>
-			<p>{$activeEventStore.subtitle}</p>
-			<Tags event={$activeEventStore} position={'start'} />
-		</a>
 	{:else}
 		<span>Featured Treasure Hunt</span>
-		<a class="card treasureHunt w-full gap-2 bg-pink-800 p-4" href="events/{tutorial.id}">
-			<h3 class="text-lg">{tutorial.name}</h3>
-			<p>{tutorial.subtitle}</p>
-			<Tags event={tutorial} position={'start'} />
-		</a>
 	{/if}
+	<a
+		class="card w-full gap-2 bg-cover bg-center p-4 bg-blend-darken"
+		style="background-image: url('{featured.image}'); background-color: rgba(0,0,0,0.5);"
+		href="events/{featured.id}"
+	>
+		<h3 class="text-lg">{featured.name}</h3>
+		<p>{featured.subtitle}</p>
+		<Tags event={featured} position={'start'} />
+	</a>
 </div>
 
 <TreasureHuntCode />
@@ -67,13 +71,3 @@
 		{/each}
 	</ul>
 </div>
-
-<style>
-	.treasureHunt {
-		background: rgba(0, 0, 0, 0.5)
-			url('https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100');
-		background-size: cover;
-		background-blend-mode: darken;
-		background-position: center;
-	}
-</style>
