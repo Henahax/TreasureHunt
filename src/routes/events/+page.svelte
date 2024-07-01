@@ -35,7 +35,7 @@
 		<span>Featured Treasure Hunt</span>
 	{/if}
 	<a
-		class="card w-full gap-2 bg-cover bg-center p-4 bg-blend-darken"
+		class="card w-full gap-2 bg-cover bg-center p-4 bg-blend-darken shadow-xl"
 		style="background-image: url('{featured.image}'); background-color: rgba(0,0,0,0.5);"
 		href="events/{featured.id}"
 	>
