@@ -28,9 +28,18 @@
 		//TODO
 		//Wirklich überschreiben?
 
+		goto(`/events/${event.id}/${event.tasks[0].id}`);
 		activeEventStore.set(event);
+	}
 
-		goto(`/events/${$activeEventStore.id}/${$activeEventStore.tasks[0].id}`);
+	function continueEvent() {
+		let taskId;
+		event.tasks.forEach((task) => {
+			if (task.unlocked === true) {
+				taskId = task.id;
+			}
+		});
+		goto('/events/' + event.id + '/' + taskId);
 	}
 </script>
 
@@ -55,31 +64,33 @@
 			<p class="text-justify">{event.description}</p>
 		</div>
 
-		<div class="flex flex-col items-center justify-center">
-			<button class="btn btn-disabled" disabled>
-				<i class="fa-solid fa-lock"></i>Locked
-			</button>
-			<div class="divider">unlock with</div>
-			<TreasureHuntCode />
-		</div>
+		{#if event.locked === true}
+			<div class="flex flex-col items-center justify-center">
+				<button class="btn btn-outline" disabled>
+					<i class="fa-solid fa-lock"></i>Locked
+				</button>
+				<div class="divider">unlock with</div>
+				<TreasureHuntCode />
+			</div>
+		{:else}
+			<div class="flex flex-row items-center justify-center gap-4">
+				{#if isActiveEvent}
+					<button class="btn btn-success max-w-xs grow" on:click={continueEvent}>
+						<i class="fa-solid fa-play"></i>Continue
+					</button>
+				{:else}
+					<button class="btn btn-primary max-w-xs grow" on:click={startEvent}>
+						<i class="fa-solid fa-play"></i>Start
+					</button>
+				{/if}
 
-		<div class="flex flex-row items-center justify-center gap-4">
-			{#if isActiveEvent}
-				<button class="btn btn-success max-w-xs grow">
-					<i class="fa-solid fa-play"></i>Continue
-				</button>
-			{:else}
-				<button class="btn btn-primary max-w-xs grow" on:click={startEvent}>
-					<i class="fa-solid fa-play"></i>Start
-				</button>
-			{/if}
-
-			{#if $activeEventStore}
-				<button class="btn btn-neutral" on:click={resetActiveEvent}>
-					<i class="fa-solid fa-eject"></i>Reset
-				</button>
-			{/if}
-		</div>
+				{#if $activeEventStore}
+					<button class="btn btn-neutral" on:click={resetActiveEvent}>
+						<i class="fa-solid fa-eject"></i>Reset
+					</button>
+				{/if}
+			</div>
+		{/if}
 	</main>
 </div>
 

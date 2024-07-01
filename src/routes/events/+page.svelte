@@ -7,11 +7,12 @@
 	$navStore = 'events';
 
 	$: filteredEvents = $allEventsStore.filter((event: Event) => {
+		const lockedMatch = event.locked !== true;
 		const nameMatch = event.name.toLowerCase().includes(filter.toLowerCase());
 		const langMatch = event.lang.toLowerCase().includes(filter.toLowerCase());
 		const locationMatch = event.location.toLowerCase().includes(filter.toLowerCase());
 		const tagMatch = event.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()));
-		return nameMatch || langMatch || locationMatch || tagMatch;
+		return lockedMatch && (nameMatch || langMatch || locationMatch || tagMatch);
 	});
 	let filter = '';
 

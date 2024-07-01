@@ -15,7 +15,7 @@
 <style>
 	.treasureHunt {
 		background: rgba(0, 0, 0, 0.5)
-			url('https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100');
+			url('https://images.unsplash.com/photo-1612257998095-1feb6bd2bcf9?q=100');
 		background-size: cover;
 		background-blend-mode: darken;
 		background-position: center;

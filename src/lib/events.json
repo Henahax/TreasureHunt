@@ -6,7 +6,7 @@
         "description": "The goal of this treasure hunt is to get to know the app and its features.\nYou will be guided through the app and learn how to solve tasks.\nHave fun!",
         "location": "online",
         "lang": "en",
-        "image": "https://images.unsplash.com/photo-1612257998095-1feb6bd2bcf9?q=100",
+        "image": "https://images.unsplash.com/photo-1608924066819-930edc42986a?q=100",
         "tags": [
             "tutorial",
             "phone",
@@ -31,19 +31,18 @@
                 "id": "task3",
                 "name": "Task 3",
                 "description": "Task 3 Desc",
-                "unlocked": true,
+                "unlocked": false,
                 "password": "drei"
             },
             {
                 "id": "task4",
                 "name": "Task 4",
                 "description": "Task 4 Desc",
-                "unlocked": true,
+                "unlocked": false,
                 "active": true,
                 "password": "vier"
             }
-        ],
-        "unlocked": true
+        ]
     },
     {
         "id": "beta",
@@ -53,6 +52,8 @@
         "location": "online",
         "lang": "de",
         "image": "https://live.staticflickr.com/7647/16491939584_5416a41768_z.jpg",
+        "locked": true,
+        "code": "beta",
         "tags": [
             "Beta-Test",
             "phone",
@@ -89,7 +90,6 @@
                 "active": true,
                 "password": "vier"
             }
-        ],
-        "unlocked": true
+        ]
     }
 ]

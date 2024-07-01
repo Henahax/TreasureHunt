@@ -45,9 +45,17 @@
 				</li>
 				<li
 					class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit
-			{$navStore === 'task' ? 'active' : ''} {$activeEventStore ? 'disabled' : ''}"
+			{$navStore === 'task' ? 'active' : ''}{$activeEventStore ? '' : 'disabled'}"
 				>
 					{#if $activeEventStore}
+						<a
+							href="/events/{$activeEventStore.id}"
+							class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
+						>
+							<i class="fa-solid fa-play"></i>
+							<div class="hidden md:block">Continue</div>
+						</a>
+					{:else}
 						<button
 							disabled
 							class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
@@ -55,14 +63,7 @@
 							<i class="fa-solid fa-play"></i>
 							<div class="hidden md:block">Continue</div>
 						</button>
-					{:else}
-						<a
-							href="/events"
-							class="bg-base-200 flex h-full w-full flex-col items-center justify-center gap-2 md:flex-row"
-						>
-							<i class="fa-solid fa-play"></i>
-							<div class="hidden md:block">Continue</div>
-						</a>{/if}
+					{/if}
 				</li>
 				<li
 					class="flex h-full w-full items-center justify-center md:mx-4 md:w-fit

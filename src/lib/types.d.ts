@@ -16,6 +16,6 @@ export type Event = {
 	image: string;
 	tags: string[];
 	tasks: Task[];
-	unlocked: boolean;
+	locked: boolean;
 	code?: string;
 };
