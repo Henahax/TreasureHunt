@@ -1,7 +1,10 @@
 <script lang="ts">
 	import './styles.css';
+	import type { Event } from '$lib/types';
+
 	import { onNavigate } from '$app/navigation';
-	import { navStore, activeEventStore } from '$lib/store';
+	import { navStore, allEventsStore, activeEventStore } from '$lib/store';
+	import { page } from '$app/stores';
 
 	// TODO: load treasure hunt from cookie
 
@@ -17,6 +20,12 @@
 			});
 		});
 	});
+
+	let eventId = $page.params.event;
+	let event: Event = $allEventsStore.find((event: Event) => event.id === eventId) as Event;
+	if (!$activeEventStore && eventId) {
+		activeEventStore.set(event);
+	}
 </script>
 
 <main class="flex min-h-dvh w-full">

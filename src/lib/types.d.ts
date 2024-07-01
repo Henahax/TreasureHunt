@@ -4,6 +4,7 @@ export type Task = {
 	description: string;
 	unlocked: boolean;
 	active?: boolean;
+	content: any;
 };
 
 export type Event = {

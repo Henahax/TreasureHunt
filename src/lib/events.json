@@ -18,7 +18,17 @@
                 "id": "task1",
                 "name": "Task 1",
                 "description": "Task 1 Desc",
-                "unlocked": true
+                "unlocked": true,
+                "content": [
+                    {
+                        "type": "image",
+                        "src": "https://www.uni-hamburg.de/onTEAM/newsletter/images/101431356300.jpg"
+                    },
+                    {
+                        "type": "text",
+                        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+                    }
+                ]
             },
             {
                 "id": "task2",
@@ -89,6 +99,32 @@
                 "unlocked": true,
                 "active": true,
                 "password": "vier"
+            }
+        ]
+    },
+    {
+        "id": "forterro",
+        "name": "Forterro Büro Test",
+        "subtitle": "Test im Büro",
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "location": "online",
+        "lang": "de",
+        "image": "https://www.bvt.de/fileadmin/_processed_/6/f/csm_BVT_Highrise_Deka_704b3ee423.jpg",
+        "locked": true,
+        "code": "forterro",
+        "tags": [
+            "Beta-Test",
+            "phone",
+            "web",
+            "camera",
+            "feedback"
+        ],
+        "tasks": [
+            {
+                "id": "task1",
+                "name": "Task 1",
+                "description": "Task 1 Desc",
+                "unlocked": true
             }
         ]
     }

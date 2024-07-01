@@ -2,7 +2,7 @@
 	import TreasureHuntCode from '$lib/TreasureHuntCode.svelte';
 </script>
 
-<main class="treasureHunt flex h-full w-full flex-grow flex-col justify-center p-8">
+<main class="treasureHunt flex h-full w-full flex-grow flex-col justify-center overflow-auto p-8">
 	<div class="mx-auto flex max-w-screen-lg flex-col gap-2">
 		<TreasureHuntCode />
 		<div class="divider">OR</div>
